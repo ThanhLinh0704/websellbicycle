@@ -40,7 +40,7 @@ public class SignUpController extends HttpServlet {
             if(a == null){
                 //dc signup
                 dao.singup(user, pass);
-                response.sendRedirect("home");
+                response.sendRedirect("wish");
             }else{
                 //day ve trang login.jsp
                 response.sendRedirect("Login.jsp");

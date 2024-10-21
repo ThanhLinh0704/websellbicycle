@@ -16,7 +16,7 @@
     <servlet-mapping>
         <servlet-name>SignUpController</servlet-name>
         <url-pattern>/signup</url-pattern>
-
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>/index.html</welcome-file>
     </welcome-file-list>
@@ -27,6 +27,5 @@
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/wish</url-pattern>
-
     </servlet-mapping>
 </web-app>

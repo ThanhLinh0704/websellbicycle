@@ -52,8 +52,7 @@
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
-
-                <a class="btn-getstarted" href="index.html#book-a-table">Đặt hàng ngay</a>
+                <a class="btn-getstarted" href="Login.jsp#book-a-table">Login</a>
 
             </div>
         </header>
