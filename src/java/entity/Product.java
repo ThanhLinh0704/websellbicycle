@@ -1,7 +1,11 @@
 
+
 package entity;
 
+
 public class Product {
+
+
     private int id;
     private String name;
     private String image;
@@ -73,5 +77,7 @@ public class Product {
     public String toString() {
         return "Product{" + "id=" + id + ", name=" + name + ", image=" + image + ", price=" + price + ", title=" + title + ", description=" + description + '}';
     }
-    
+
+
 }
+

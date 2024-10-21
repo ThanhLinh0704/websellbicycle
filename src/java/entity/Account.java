@@ -1,8 +1,11 @@
 
+
 package entity;
 
 
 public class Account {
+
+
     private int id;
     private String user;
     private String pass;
@@ -19,8 +22,6 @@ public class Account {
         this.isSell = isSell;
         this.isAdmin = isAdmin;
     }
-
-   
 
     public int getId() {
         return id;

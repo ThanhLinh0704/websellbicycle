@@ -1,8 +1,13 @@
 
+
 package entity;
 
 
+
+
 public class Category {
+
+
     private int cid;
     private String cname;
 
@@ -34,5 +39,7 @@ public class Category {
     public String toString() {
         return "Category{" + "cid=" + cid + ", cname=" + cname + '}';
     }
-    
+
+
 }
+
