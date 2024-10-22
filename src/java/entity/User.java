@@ -1,19 +1,23 @@
 package entity;
 
+import java.util.Date;
+
 public class User {
 
     private int id;
     private String name;
     private boolean gender;
+    private Date dob;
     private String phone;
 
     public User() {
     }
 
-    public User(int id, String name, boolean gender, String phone) {
+    public User(int id, String name, boolean gender, Date dob, String phone) {
         this.id = id;
         this.name = name;
         this.gender = gender;
+        this.dob = dob;
         this.phone = phone;
     }
 
@@ -41,6 +45,14 @@ public class User {
         this.gender = gender;
     }
 
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -51,7 +63,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", phone=" + phone + '}';
+        return "User{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", dob=" + dob + ", phone=" + phone + '}';
     }
 
 }

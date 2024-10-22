@@ -35,51 +35,7 @@
     <body class="index-page">
 
         <jsp:include page="layout/header.jsp"></jsp:include>
-        <header id="header" class="header d-flex align-items-center sticky-top">
-            <div class="container position-relative d-flex align-items-center justify-content-between">
 
-                <a href="#" class="logo d-flex align-items-center me-auto me-xl-0">
-                    <!-- Uncomment the line below if you also wish to use an image logo -->
-                    <img src="assets/img/logo.png" alt="">
-                    <h1 class="sitename">Wish</h1>
-                    <span>.</span>
-                </a>
-
-                <nav id="navmenu" class="navmenu">
-                    <ul>
-                        <li><a href="#hero" class="active">Trang chủ<br></a></li>
-                        <li><a href="#about">Về chúng tôi</a></li>
-                        <li><a href="#menu">Sản phẩm</a></li>
-                        <li><a href="#chefs">Chefs</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Liên hệ</a></li>
-                    </ul>
-                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-                </nav>
-                <a class="btn-getstarted" href="Login.jsp#book-a-table">Login</a>
-
-            </div>
-        </header>
-
-        <main class="main">
-
-            <!-- Hero Section -->
-            <section id="hero" class="hero section light-background">
-
-                <div class="container">
-                    <div class="row gy-4 justify-content-center justify-content-lg-between">
-                        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                            <h1 data-aos="fade-up">Hãy tận hưởng những chuyến phiêu lưu</h1>
-                            <p data-aos="fade-up" data-aos-delay="100">Sứ mệnh của chúng tôi là đưa đến những chiếc xe đạp tốt nhất đến người tiêu dùng</p>
-                            <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                                <a href="#book-a-table" class="btn-get-started">Tìm hiểu thêm</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-                            <img src="assets/img/header-img.png" class="img-fluid animated" alt="">
-                        </div>
-                    </div>
-                </div>
             <main class="main">
 
                 <!-- Hero Section -->
