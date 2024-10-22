@@ -37,7 +37,9 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("web/login.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
+            User user = loginDAO.getUserSignin(username);
             session.setAttribute("account", account);
+            session.setAttribute("user", user);
             session.setMaxInactiveInterval(1000);
             response.sendRedirect("wish");
         }

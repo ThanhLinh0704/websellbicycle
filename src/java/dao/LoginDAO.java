@@ -119,4 +119,35 @@ public class LoginDAO extends DBContext {
             }
         }
     }
+
+    public User getUserSignin(String user) {
+        String query = "SELECT * FROM [User] WHERE [uID] = (SELECT [uID] FROM [Account] WHERE [user] = ?)";
+        try {
+            connect = connection.prepareStatement(query);
+            connect.setString(1, user);
+            result = connect.executeQuery();
+            while (result.next()) {
+                return new User(
+                        result.getInt(1),
+                        result.getString(2),
+                        result.getBoolean(3),
+                        result.getDate(4),
+                        result.getString(5));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                if (result != null) {
+                    result.close();
+                }
+                if (connect != null) {
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return null;
+    }
 }

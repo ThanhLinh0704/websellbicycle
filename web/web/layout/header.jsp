@@ -1,6 +1,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<style>
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        background-color: white;
+        border: 1px solid #ccc;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+</style>
+
 <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
@@ -14,6 +35,7 @@
         <nav id="navmenu" class="navmenu">
             <ul>
                 <li><a href="#hero" class="active">Trang chủ<br></a></li>
+                <li><a href="product">Sản phẩm</a></li>
                 <li><a href="#about">Về chúng tôi</a></li>
                 <li><a href="#menu">Sản phẩm mới</a></li>
                 <li><a href="#testimonials">Đánh giá</a></li>
@@ -29,10 +51,13 @@
             <c:otherwise>
                 <div class="dropdown">
                     <span class="btn-getstarted dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        Xin chào, ${sessionScope.account.user}!
+                        Xin chào, ${sessionScope.user.name}!
                     </span>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="info">Thông tin</a></li>
+                            <c:if test="${sessionScope.account.isAdmin == 1 || sessionScope.account.isSell == 1}">
+                            <li><a class="dropdown-item" href="management">Quản lý</a></li>
+                            </c:if>
                         <li><a class="dropdown-item" href="cart">Giỏ hàng</a></li>
                         <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
                     </ul>
