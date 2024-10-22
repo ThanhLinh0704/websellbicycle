@@ -1,6 +1,10 @@
+
+
 package entity;
 
+
 public class Account {
+
 
     private int id;
     private String user;
@@ -63,5 +67,4 @@ public class Account {
     public String toString() {
         return "Account{" + "id=" + id + ", user=" + user + ", pass=" + pass + ", isSell=" + isSell + ", isAdmin=" + isAdmin + '}';
     }
-
 }

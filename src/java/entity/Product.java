@@ -1,6 +1,10 @@
+
+
 package entity;
 
+
 public class Product {
+
 
     private int id;
     private String name;
@@ -74,4 +78,6 @@ public class Product {
         return "Product{" + "id=" + id + ", name=" + name + ", image=" + image + ", price=" + price + ", title=" + title + ", description=" + description + '}';
     }
 
+
 }
+
