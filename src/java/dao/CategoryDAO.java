@@ -12,7 +12,7 @@ public class CategoryDAO extends DBContext {
 
     public List<Category> getAllCategory() {
         List<Category> list = new ArrayList<>();
-        String query = "select * from Category";
+        String query = "SELECT * FROM [Category]";
         try {
             connect = connection.prepareStatement(query);
             result = connect.executeQuery();

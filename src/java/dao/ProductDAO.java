@@ -13,7 +13,7 @@ public class ProductDAO extends DBContext {
     // Lấy tất cả sản phẩm có trong Database
     public List<Product> getAllProduct() {
         List<Product> products = new ArrayList<>();
-        String query = "SELECT * FROM product";
+        String query = "SELECT * FROM [product]";
         try {
             connect = connection.prepareStatement(query);
             result = connect.executeQuery();
@@ -43,10 +43,10 @@ public class ProductDAO extends DBContext {
         return products;
     }
 
-    // Lấy ra 3 sản phẩm đầu tiên trong Database
+    // Lấy ra 3 sản phẩm mới nhất được thêm vào trong Database
     public List<Product> getTop3() {
         List<Product> products = new ArrayList<>();
-        String query = "SELECT TOP 3 * FROM product";
+        String query = "SELECT TOP 3 * FROM [product] ORDER BY [id] DESC";
         try {
             connect = connection.prepareStatement(query);
             result = connect.executeQuery();
@@ -79,7 +79,7 @@ public class ProductDAO extends DBContext {
     // Lấy ra dữ liệu của 3 sản phầm đầu tiên kể tự ví trí amount
     public List<Product> getNext3Product(int amount) {
         List<Product> list = new ArrayList<>();
-        String query = "SELECT * FROM product ORDER BY id OFFSET ? ROWS FETCH NEXT 3 ROWS ONLY";
+        String query = "SELECT * FROM [product] ORDER BY [id] OFFSET ? ROWS FETCH NEXT 3 ROWS ONLY";
         try {
             connect = connection.prepareStatement(query);
             connect.setInt(1, amount);
@@ -113,7 +113,7 @@ public class ProductDAO extends DBContext {
     // Lấy tất cả sản phẩm trong database có cùng chỉ số cateID
     public List<Product> getProductByCID(int cid) {
         List<Product> products = new ArrayList<>();
-        String query = "SELECT * FROM product WHERE cateID = ?";
+        String query = "SELECT * FROM [product] WHERE [cateID] = ?";
         try {
             connect = connection.prepareStatement(query);
             connect.setInt(1, cid);
@@ -147,7 +147,7 @@ public class ProductDAO extends DBContext {
     // Lấy tất cả sản phẩm trong database có cùng chỉ số sell_ID
     public List<Product> getProductBySellID(int sid) {
         List<Product> list = new ArrayList<>();
-        String query = "SELECT * FROM product WHERE sell_ID = ?";
+        String query = "SELECT * FROM [product] WHERE [sell_ID] = ?";
         try {
             connect = connection.prepareStatement(query);
             connect.setInt(1, sid);
@@ -181,7 +181,7 @@ public class ProductDAO extends DBContext {
     //Tìm kiếm sản phẩm trong Database theo tên
     public List<Product> searchByName(String txtSearch) {
         List<Product> list = new ArrayList<>();
-        String query = "SELECT * FROM product WHERE name like ?";
+        String query = "SELECT * FROM [product] WHERE [name] LIKE ?";
         try {
             connect = connection.prepareStatement(query);
             connect.setString(1, "%" + txtSearch + "%");
@@ -214,7 +214,7 @@ public class ProductDAO extends DBContext {
 
     // Lấy sản phẩm trong database có cùng chỉ số id
     public Product getProductByID(int id) {
-        String query = "SELECT * FROM product WHERE id = ?";
+        String query = "SELECT * FROM [product] WHERE [id] = ?";
         try {
             connect = connection.prepareStatement(query);
             connect.setInt(1, id);
@@ -247,7 +247,7 @@ public class ProductDAO extends DBContext {
 
     // Lấy ra sản phẩm mới nhất trong Database
     public Product getLast() {
-        String query = "SELECT TOP 1 * FROM product ORDER BY id DESC";
+        String query = "SELECT TOP 1 * FROM [product] ORDER BY [id] DESC";
         try {
             connect = connection.prepareStatement(query);
             result = connect.executeQuery();
@@ -278,7 +278,7 @@ public class ProductDAO extends DBContext {
     }
 
     public void deleteProduct(String pid) {
-        String query = "DELETE FROM product WHERE id = ?";
+        String query = "DELETE FROM [product] WHERE [id] = ?";
         try {
             connect = connection.prepareStatement(query);
             connect.setString(1, pid);
@@ -301,7 +301,7 @@ public class ProductDAO extends DBContext {
 
     public void insertProduct(String name, String image, String price, String title, String description, String category, int sid) {
         String query = "INSERT product \n"
-                + "(name, image, price, title, description, cateID, sell_ID)\n"
+                + "([name], [image], [price], [title], [description], [cateID], [sell_ID])\n"
                 + "VALUES(?,?,?,?,?,?,?)";
         try {
             connect = connection.prepareStatement(query);
@@ -330,14 +330,14 @@ public class ProductDAO extends DBContext {
     }
 
     public void editProduct(String name, String image, String price, String title, String description, String category, String pid) {
-        String query = "UPDATE product\n"
-                + "set name = ?,\n"
-                + "image = ?,\n"
-                + "price = ?,\n"
-                + "title = ?,\n"
-                + "description = ?,\n"
-                + "cateID = ?\n"
-                + "WHERE id = ?";
+        String query = "UPDATE [product]\n"
+                + "SET [name] = ?,\n"
+                + "[image] = ?,\n"
+                + "[price] = ?,\n"
+                + "[title] = ?,\n"
+                + "[description] = ?,\n"
+                + "[cateID] = ?\n"
+                + "WHERE [id] = ?";
         try {
             connect = connection.prepareStatement(query);
             connect.setString(1, name);

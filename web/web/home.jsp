@@ -1,3 +1,6 @@
+<%@page import="java.text.*"%>
+<%@page import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +34,7 @@
 
     <body class="index-page">
 
+        <jsp:include page="layout/header.jsp"></jsp:include>
         <header id="header" class="header d-flex align-items-center sticky-top">
             <div class="container position-relative d-flex align-items-center justify-content-between">
 
@@ -76,128 +80,105 @@
                         </div>
                     </div>
                 </div>
+            <main class="main">
 
-            </section><!-- /Hero Section -->
+                <!-- Hero Section -->
+                <section id="hero" class="hero section light-background">
 
-            <!-- About Section -->
-            <section id="about" class="about section">
-
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>About Us<br></h2>
-                    <p><span>Learn More</span> <span class="description-title">About Us</span></p>
-                </div><!-- End Section Title -->
-
-                <div class="container">
-
-                    <div class="row gy-4">
-                        <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-                            <img src="assets/img/about.jpg" class="img-fluid mb-4" alt="">
-                            <div class="book-a-table">
-                                <h3>Book a Table</h3>
-                                <p>+1 5589 55488 55</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
-                            <div class="content ps-0 ps-lg-5">
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                                    <li><i class="bi bi-check-circle-fill"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                                    <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-                                </p>
-
-                                <div class="position-relative mt-4">
-                                    <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
-                                    <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+                    <div class="container">
+                        <div class="row gy-4 justify-content-center justify-content-lg-between">
+                            <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                                <h1 data-aos="fade-up">Hãy tận hưởng những chuyến phiêu lưu</h1>
+                                <p data-aos="fade-up" data-aos-delay="100">Sứ mệnh của chúng tôi là đưa đến những chiếc xe đạp tốt nhất đến người tiêu dùng</p>
+                                <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                                    <a href="#book-a-table" class="btn-get-started">Tìm hiểu thêm</a>
                                 </div>
+                            </div>
+                            <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+                                <img src="assets/img/header-img.png" class="img-fluid animated" alt="">
                             </div>
                         </div>
                     </div>
 
-                </div>
+                </section><!-- /Hero Section -->
 
-            </section><!-- /About Section -->
+                <!-- About Section -->
+                <section id="about" class="about section">
 
-            <!-- Menu Section -->
-            <section id="menu" class="menu section">
+                    <!-- Section Title -->
+                    <div class="container section-title" data-aos="fade-up">
+                        <h2>About Us<br></h2>
+                        <p><span>Learn More</span> <span class="description-title">About Us</span></p>
+                    </div><!-- End Section Title -->
 
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>Sản phẩm mới nhất</h2>
-                    <p><span>Check Our</span> <span class="description-title">Wish Menu</span></p>
-                </div><!-- End Section Title -->
+                    <div class="container">
 
-                <div class="container">
-
-                    <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-
-                        <li class="nav-item">
-                            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
-                                <h4>Xe phổ thông</h4>
-                            </a>
-                        </li><!-- End tab nav item -->
-
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-                                <h4>Xe trẻ em</h4>
-                            </a><!-- End tab nav item -->
-
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
-                                <h4>xe thể thao</h4>
-                            </a>
-                        </li><!-- End tab nav item -->
-
-                    </ul>
-
-                    <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-
-                        <div class="tab-pane fade active show" id="menu-starters">
-
-                            <div class="row gy-5">
-
-                                <div class="col-lg-4 menu-item">
-                                    <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                                    <h4>Magnam Tiste</h4>
-                                    <p class="ingredients">
-                                        Lorem, deren, trataro, filede, nerada
+                        <div class="row gy-4">
+                            <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+                                <img src="assets/img/about.jpg" class="img-fluid mb-4" alt="">
+                                <div class="book-a-table">
+                                    <h3>Book a Table</h3>
+                                    <p>+1 5589 55488 55</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
+                                <div class="content ps-0 ps-lg-5">
+                                    <p class="fst-italic">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                        magna aliqua.
                                     </p>
-                                    <p class="price">
-                                        $5.95
+                                    <ul>
+                                        <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
+                                        <li><i class="bi bi-check-circle-fill"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
+                                        <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                                    </ul>
+                                    <p>
+                                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
                                     </p>
-                                </div><!-- Menu Item -->
 
-                                <div class="col-lg-4 menu-item">
-                                    <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                                    <h4>Aut Luia</h4>
-                                    <p class="ingredients">
-                                        Lorem, deren, trataro, filede, nerada
-                                    </p>
-                                    <p class="price">
-                                        $14.95
-                                    </p>
-                                </div><!-- Menu Item -->
+                                    <div class="position-relative mt-4">
+                                        <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
+                                        <a href="" class="glightbox pulsating-play-btn"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                <div class="col-lg-4 menu-item">
-                                    <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                                    <h4>Est Eligendi</h4>
-                                    <p class="ingredients">
-                                        Lorem, deren, trataro, filede, nerada
-                                    </p>
-                                    <p class="price">
-                                        $8.95
-                                    </p>
-                                </div><!-- Menu Item -->
+                    </div>
 
+                </section><!-- /About Section -->
+
+                <!-- Menu Section -->
+                <section id="menu" class="menu section">
+
+                    <!-- Section Title -->
+                    <div class="container section-title" data-aos="fade-up">
+                        <h2>Sản phẩm mới nhất</h2>
+                        <p><span>Check Our</span> <span class="description-title">Wish Menu</span></p>
+                    </div><!-- End Section Title -->
+
+                    <div class="container">
+                        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+                            <div class="tab-pane fade active show" id="menu-starters">
+
+                                <div class="row gy-5">
+
+                                <c:forEach items="${sessionScope.products}" var="product">
+                                    <div class="col-lg-4 menu-item">
+                                        <a href="${product.image}" class="glightbox">
+                                            <img src="${product.image}" class="menu-img img-fluid" alt="" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23e0e0e0%22/%3E%3C/svg%3E';">
+                                        </a>
+                                        <h4>${product.name}</h4>
+                                        <p class="ingredients">
+                                            ${product.title}
+                                        </p>
+                                        <p class="price">
+                                            ${product.price}
+                                        </p>
+                                    </div><!-- Menu Item -->
+                                </c:forEach>
                             </div>
                         </div><!-- End Starter Menu Content -->
                     </div>
@@ -337,199 +318,6 @@
                 </div>
 
             </section><!-- /Testimonials Section -->
-
-            <!-- Chefs Section -->
-            <section id="chefs" class="chefs section">
-
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>chefs</h2>
-                    <p><span>Our</span> <span class="description-title">Proffesional Chefs<br></span></p>
-                </div><!-- End Section Title -->
-
-                <div class="container">
-
-                    <div class="row gy-4">
-
-                        <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                            <div class="team-member">
-                                <div class="member-img">
-                                    <img src="assets/img/chefs/chefs-1.jpg" class="img-fluid" alt="">
-                                    <div class="social">
-                                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                                        <a href=""><i class="bi bi-facebook"></i></a>
-                                        <a href=""><i class="bi bi-instagram"></i></a>
-                                        <a href=""><i class="bi bi-linkedin"></i></a>
-                                    </div>
-                                </div>
-                                <div class="member-info">
-                                    <h4>Walter White</h4>
-                                    <span>Master Chef</span>
-                                    <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
-                                </div>
-                            </div>
-                        </div><!-- End Chef Team Member -->
-
-                        <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                            <div class="team-member">
-                                <div class="member-img">
-                                    <img src="assets/img/chefs/chefs-2.jpg" class="img-fluid" alt="">
-                                    <div class="social">
-                                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                                        <a href=""><i class="bi bi-facebook"></i></a>
-                                        <a href=""><i class="bi bi-instagram"></i></a>
-                                        <a href=""><i class="bi bi-linkedin"></i></a>
-                                    </div>
-                                </div>
-                                <div class="member-info">
-                                    <h4>Sarah Jhonson</h4>
-                                    <span>Patissier</span>
-                                    <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
-                                </div>
-                            </div>
-                        </div><!-- End Chef Team Member -->
-
-                        <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                            <div class="team-member">
-                                <div class="member-img">
-                                    <img src="assets/img/chefs/chefs-3.jpg" class="img-fluid" alt="">
-                                    <div class="social">
-                                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                                        <a href=""><i class="bi bi-facebook"></i></a>
-                                        <a href=""><i class="bi bi-instagram"></i></a>
-                                        <a href=""><i class="bi bi-linkedin"></i></a>
-                                    </div>
-                                </div>
-                                <div class="member-info">
-                                    <h4>William Anderson</h4>
-                                    <span>Cook</span>
-                                    <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-                                </div>
-                            </div>
-                        </div><!-- End Chef Team Member -->
-
-                    </div>
-
-                </div>
-
-            </section><!-- /Chefs Section -->
-
-            <!-- Book A Table Section -->
-            <section id="book-a-table" class="book-a-table section">
-
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>Book A Table</h2>
-                    <p><span>Book Your</span> <span class="description-title">Stay With Us<br></span></p>
-                </div><!-- End Section Title -->
-
-                <div class="container">
-
-                    <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
-
-                        <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);"></div>
-
-                        <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
-                            <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
-                                <div class="row gy-4">
-                                    <div class="col-lg-4 col-md-6">
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <input type="date" name="date" class="form-control" id="date" placeholder="Date" required="">
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <input type="time" class="form-control" name="time" id="time" placeholder="Time" required="">
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <input type="number" class="form-control" name="people" id="people" placeholder="# of people" required="">
-                                    </div>
-                                </div>
-
-                                <div class="form-group mt-3">
-                                    <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
-                                </div>
-
-                                <div class="text-center mt-3">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-                                    <button type="submit">Book a Table</button>
-                                </div>
-                            </form>
-                        </div><!-- End Reservation Form -->
-
-                    </div>
-
-                </div>
-
-            </section><!-- /Book A Table Section -->
-
-            <!-- Gallery Section -->
-            <section id="gallery" class="gallery section light-background">
-
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>Gallery</h2>
-                    <p><span>Check</span> <span class="description-title">Our Gallery</span></p>
-                </div><!-- End Section Title -->
-
-                <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                    <div class="swiper init-swiper">
-                        <script type="application/json" class="swiper-config">
-                            {
-                            "loop": true,
-                            "speed": 600,
-                            "autoplay": {
-                            "delay": 5000
-                            },
-                            "slidesPerView": "auto",
-                            "centeredSlides": true,
-                            "pagination": {
-                            "el": ".swiper-pagination",
-                            "type": "bullets",
-                            "clickable": true
-                            },
-                            "breakpoints": {
-                            "320": {
-                            "slidesPerView": 1,
-                            "spaceBetween": 0
-                            },
-                            "768": {
-                            "slidesPerView": 3,
-                            "spaceBetween": 20
-                            },
-                            "1200": {
-                            "slidesPerView": 5,
-                            "spaceBetween": 20
-                            }
-                            }
-                            }
-                        </script>
-                        <div class="swiper-wrapper align-items-center">
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-1.jpg"><img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-2.jpg"><img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-3.jpg"><img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-4.jpg"><img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-5.jpg"><img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-6.jpg"><img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-7.jpg"><img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-8.jpg"><img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-
-                </div>
-
-            </section><!-- /Gallery Section -->
-
             <!-- Contact Section -->
             <section id="contact" class="contact section">
 
@@ -551,7 +339,7 @@
                             <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
                                 <i class="icon bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
-                                    <h3>Address</h3>
+                                    <h3>Địa chỉ</h3>
                                     <p>A108 Adam Street, New York, NY 535022</p>
                                 </div>
                             </div>
@@ -561,8 +349,8 @@
                             <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
                                 <i class="icon bi bi-telephone flex-shrink-0"></i>
                                 <div>
-                                    <h3>Call Us</h3>
-                                    <p>+1 5589 55488 55</p>
+                                    <h3>Liên hệ với chúng tôi</h3>
+                                    <p>+84 966755095</p>
                                 </div>
                             </div>
                         </div><!-- End Info Item -->
@@ -571,8 +359,8 @@
                             <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
                                 <i class="icon bi bi-envelope flex-shrink-0"></i>
                                 <div>
-                                    <h3>Email Us</h3>
-                                    <p>info@example.com</p>
+                                    <h3>Email</h3>
+                                    <p>wish@gmail.com</p>
                                 </div>
                             </div>
                         </div><!-- End Info Item -->
@@ -625,68 +413,7 @@
 
         </main>
 
-        <footer id="footer" class="footer dark-background">
-
-            <div class="container">
-                <div class="row gy-3">
-                    <div class="col-lg-3 col-md-6 d-flex">
-                        <i class="bi bi-geo-alt icon"></i>
-                        <div class="address">
-                            <h4>Address</h4>
-                            <p>A108 Adam Street</p>
-                            <p>New York, NY 535022</p>
-                            <p></p>
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-flex">
-                        <i class="bi bi-telephone icon"></i>
-                        <div>
-                            <h4>Contact</h4>
-                            <p>
-                                <strong>Phone:</strong> <span>+1 5589 55488 55</span><br>
-                                <strong>Email:</strong> <span>info@example.com</span><br>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-flex">
-                        <i class="bi bi-clock icon"></i>
-                        <div>
-                            <h4>Opening Hours</h4>
-                            <p>
-                                <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
-                                <strong>Sunday</strong>: <span>Closed</span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <h4>Follow Us</h4>
-                        <div class="social-links d-flex">
-                            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="container copyright text-center mt-4">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">Yummy</strong> <span>All Rights Reserved</span></p>
-                <div class="credits">
-                    <!-- All the links in the footer should remain intact. -->
-                    <!-- You can delete the links only if you've purchased the pro version. -->
-                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                    <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
-            </div>
-
-        </footer>
+        <jsp:include page="layout/footer.jsp"></jsp:include>
 
         <!-- Scroll Top -->
         <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
