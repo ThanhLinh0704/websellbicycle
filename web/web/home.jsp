@@ -110,8 +110,7 @@
 
                     <!-- Section Title -->
                     <div class="container section-title" data-aos="fade-up">
-                        <h2>Sản phẩm mới nhất</h2>
-                        <p><span>Check Our</span> <span class="description-title">Wish Menu</span></p>
+                        <p><span>Khám phá các sản phẩm mới nhất của</span> <span class="description-title">Wish</span></p>
                     </div><!-- End Section Title -->
 
                     <div class="container">

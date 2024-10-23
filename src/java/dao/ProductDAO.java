@@ -76,40 +76,6 @@ public class ProductDAO extends DBContext {
         return products;
     }
 
-    // Lấy ra dữ liệu của 3 sản phầm đầu tiên kể tự ví trí amount
-    public List<Product> getNext3Product(int amount) {
-        List<Product> list = new ArrayList<>();
-        String query = "SELECT * FROM [product] ORDER BY [id] OFFSET ? ROWS FETCH NEXT 3 ROWS ONLY";
-        try {
-            connect = connection.prepareStatement(query);
-            connect.setInt(1, amount);
-            result = connect.executeQuery();
-            while (result.next()) {
-                list.add(new Product(
-                        result.getInt(1),
-                        result.getString(2),
-                        result.getString(3),
-                        result.getDouble(4),
-                        result.getString(5),
-                        result.getString(6)));
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        } finally {
-            try {
-                if (result != null) {
-                    result.close();
-                }
-                if (connect != null) {
-                    connect.close();
-                }
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-        }
-        return list;
-    }
-
     // Lấy tất cả sản phẩm trong database có cùng chỉ số cateID
     public List<Product> getProductByCID(int cid) {
         List<Product> products = new ArrayList<>();

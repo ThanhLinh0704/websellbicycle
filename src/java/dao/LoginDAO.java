@@ -120,7 +120,7 @@ public class LoginDAO extends DBContext {
         }
     }
 
-    public User getUserSignin(String user) {
+    public User getUserLogin(String user) {
         String query = "SELECT * FROM [User] WHERE [uID] = (SELECT [uID] FROM [Account] WHERE [user] = ?)";
         try {
             connect = connection.prepareStatement(query);
