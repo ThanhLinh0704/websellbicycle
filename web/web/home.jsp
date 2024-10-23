@@ -47,7 +47,7 @@
                                 <h1 data-aos="fade-up">Hãy tận hưởng những chuyến phiêu lưu</h1>
                                 <p data-aos="fade-up" data-aos-delay="100">Sứ mệnh của chúng tôi là đưa đến những chiếc xe đạp tốt nhất đến người tiêu dùng</p>
                                 <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                                    <a href="#book-a-table" class="btn-get-started">Tìm hiểu thêm</a>
+                                    <a href="product" class="btn-get-started">Tìm hiểu thêm</a>
                                 </div>
                             </div>
                             <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
@@ -63,8 +63,8 @@
 
                     <!-- Section Title -->
                     <div class="container section-title" data-aos="fade-up">
-                        <h2>About Us<br></h2>
-                        <p><span>Learn More</span> <span class="description-title">About Us</span></p>
+                        <h2>Về chúng tôi<br></h2>
+                        <p><span>Giới thiệu về </span> <span class="description-title">Wish</span></p>
                     </div><!-- End Section Title -->
 
                     <div class="container">
@@ -73,32 +73,30 @@
                             <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
                                 <img src="assets/img/about.jpg" class="img-fluid mb-4" alt="">
                                 <div class="book-a-table">
-                                    <h3>Book a Table</h3>
-                                    <p>+1 5589 55488 55</p>
+                                    <h3>Thông tin chi tiết liên hệ đến email</h3>
+                                    <p>wish@gmail.com</p>
                                 </div>
                             </div>
                             <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
                                 <div class="content ps-0 ps-lg-5">
                                     <p class="fst-italic">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                        magna aliqua.
+                                        Tại Wish, chúng tôi không chỉ bán xe đạp; chúng tôi tạo ra những trải nghiệm sống động và đầy cảm hứng. Được thành lập với sứ mệnh mang lại giải pháp di chuyển xanh và lành mạnh, chúng tôi cam kết cung cấp những chiếc xe đạp tiêu chuẩn chất lượng cao nhất.
                                     </p>
                                     <ul>
-                                        <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                                        <li><i class="bi bi-check-circle-fill"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                                        <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                                        <li><i class="bi bi-check-circle-fill"></i> <span>Những chiếc xe đạp bền bỉ và an toàn từ các thương hiệu hàng đầu.</span></li>
+                                        <li><i class="bi bi-check-circle-fill"></i> <span>Đội ngũ nhân viên tận tâm, sẵn sàng tư vấn và hỗ trợ bạn.</span></li>
+                                        <li><i class="bi bi-check-circle-fill"></i> <span>Cam kết bảo vệ môi trường với các sản phẩm thân thiện và tiết kiệm năng lượng.</span></li>
                                     </ul>
                                     <p>
-                                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                                        Hãy cùng chúng tôi khám phá thế giới xe đạp, nơi mà sự tự do, sức khỏe và niềm vui di chuyển được kết nối. Cảm ơn bạn đã lựa chọn Wish làm điểm đến cho hành trình đạp xe của mình!
                                     </p>
 
                                     <div class="position-relative mt-4">
                                         <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
-                                        <a href="" class="glightbox pulsating-play-btn"></a>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                     </div>
@@ -123,9 +121,13 @@
                                 <c:forEach items="${sessionScope.products}" var="product">
                                     <div class="col-lg-4 menu-item">
                                         <a href="${product.image}" class="glightbox">
-                                            <img src="${product.image}" class="menu-img img-fluid" alt="" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23e0e0e0%22/%3E%3C/svg%3E';">
+                                            <div style="width: 100%; height: 200px; overflow: hidden;">
+                                                <img src="${product.image}" class="menu-img img-fluid" alt="" 
+                                                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23e0e0e0%22/%3E%3C/svg%3E';"
+                                                     style="width: 100%; height: 100%; object-fit: cover;" />
+                                            </div>
                                         </a>
-                                        <h4>${product.name}</h4>
+                                        <h4><a href="detail?id=${product.id}">${product.name}</a></h4>
                                         <p class="ingredients">
                                             ${product.title}
                                         </p>
@@ -134,6 +136,7 @@
                                         </p>
                                     </div><!-- Menu Item -->
                                 </c:forEach>
+
                             </div>
                         </div><!-- End Starter Menu Content -->
                     </div>
@@ -144,227 +147,231 @@
             <!-- Testimonials Section -->
             <section id="testimonials" class="testimonials section light-background">
 
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>TESTIMONIALS</h2>
-                    <p>What Are They <span class="description-title">Saying About Us</span></p>
-                </div><!-- End Section Title -->
+                <!-- Testimonials Section -->
+                <section id="testimonials" class="testimonials section light-background">
 
-                <div class="container" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Section Title -->
+                    <div class="container section-title" data-aos="fade-up">
+                        <h2>ĐÁNH GIÁ</h2>
+                        <p>Họ đã nói về <span class="description-title">Wish</span> như thế nào</p>
+                    </div><!-- End Section Title -->
 
-                    <div class="swiper init-swiper">
-                        <script type="application/json" class="swiper-config">
-                            {
-                            "loop": true,
-                            "speed": 600,
-                            "autoplay": {
-                            "delay": 5000
-                            },
-                            "slidesPerView": "auto",
-                            "pagination": {
-                            "el": ".swiper-pagination",
-                            "type": "bullets",
-                            "clickable": true
-                            }
-                            }
-                        </script>
-                        <div class="swiper-wrapper">
+                    <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <div class="row gy-4 justify-content-center">
-                                        <div class="col-lg-6">
-                                            <div class="testimonial-content">
-                                                <p>
-                                                    <i class="bi bi-quote quote-icon-left"></i>
-                                                    <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                                                    <i class="bi bi-quote quote-icon-right"></i>
-                                                </p>
-                                                <h3>Saul Goodman</h3>
-                                                <h4>Ceo &amp; Founder</h4>
-                                                <div class="stars">
-                                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <div class="swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                                {
+                                "loop": true,
+                                "speed": 600,
+                                "autoplay": {
+                                "delay": 5000
+                                },
+                                "slidesPerView": "auto",
+                                "pagination": {
+                                "el": ".swiper-pagination",
+                                "type": "bullets",
+                                "clickable": true
+                                }
+                                }
+                            </script>
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <div class="row gy-4 justify-content-center">
+                                            <div class="col-lg-6">
+                                                <div class="testimonial-content">
+                                                    <p>
+                                                        <i class="bi bi-quote quote-icon-left"></i>
+                                                        <span>Tôi đã trải nghiệm chiếc xe đạp từ Wish và phải nói rằng đây là một sản phẩm tuyệt vời. Xe chạy rất mượt mà, khung xe chắc chắn, và cảm giác lái rất thoải mái. Tôi đã sử dụng xe cho cả việc đi làm và thư giãn vào cuối tuần, và nó luôn đáp ứng tốt. Thực sự là một khoản đầu tư xứng đáng!</span>
+                                                        <i class="bi bi-quote quote-icon-right"></i>
+                                                    </p>
+                                                    <h3>Nguyễn Văn A</h3>
+                                                    <h4>Khách hàng</h4>
+                                                    <div class="stars">
+                                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-2 text-center">
-                                            <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid testimonial-img" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <div class="row gy-4 justify-content-center">
-                                        <div class="col-lg-6">
-                                            <div class="testimonial-content">
-                                                <p>
-                                                    <i class="bi bi-quote quote-icon-left"></i>
-                                                    <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                                                    <i class="bi bi-quote quote-icon-right"></i>
-                                                </p>
-                                                <h3>Sara Wilsson</h3>
-                                                <h4>Designer</h4>
-                                                <div class="stars">
-                                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                                </div>
+                                            <div class="col-lg-2 text-center">
+                                                <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid testimonial-img" alt="">
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 text-center">
-                                            <img src="assets/img/testimonials/testimonials-2.jpg" class="img-fluid testimonial-img" alt="">
-                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- End testimonial item -->
+                                </div><!-- End testimonial item -->
 
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <div class="row gy-4 justify-content-center">
-                                        <div class="col-lg-6">
-                                            <div class="testimonial-content">
-                                                <p>
-                                                    <i class="bi bi-quote quote-icon-left"></i>
-                                                    <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                                                    <i class="bi bi-quote quote-icon-right"></i>
-                                                </p>
-                                                <h3>Jena Karlis</h3>
-                                                <h4>Store Owner</h4>
-                                                <div class="stars">
-                                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <div class="row gy-4 justify-content-center">
+                                            <div class="col-lg-6">
+                                                <div class="testimonial-content">
+                                                    <p>
+                                                        <i class="bi bi-quote quote-icon-left"></i>
+                                                        <span>Chiếc xe đạp tôi mua từ Wish thực sự đã thay đổi cách tôi di chuyển hàng ngày. Không chỉ tiện lợi mà còn rất thời trang. Tôi thường xuyên nhận được những lời khen từ bạn bè về thiết kế và màu sắc của xe. Rất khuyến khích những ai đang tìm kiếm một chiếc xe đạp chất lượng và phong cách!</span>
+                                                        <i class="bi bi-quote quote-icon-right"></i>
+                                                    </p>
+                                                    <h3>Trần Thị B</h3>
+                                                    <h4>Khách hàng</hàng>
+                                                        <div class="stars">
+                                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                        </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-2 text-center">
-                                            <img src="assets/img/testimonials/testimonials-3.jpg" class="img-fluid testimonial-img" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <div class="row gy-4 justify-content-center">
-                                        <div class="col-lg-6">
-                                            <div class="testimonial-content">
-                                                <p>
-                                                    <i class="bi bi-quote quote-icon-left"></i>
-                                                    <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                                                    <i class="bi bi-quote quote-icon-right"></i>
-                                                </p>
-                                                <h3>John Larson</h3>
-                                                <h4>Entrepreneur</h4>
-                                                <div class="stars">
-                                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                                </div>
+                                            <div class="col-lg-2 text-center">
+                                                <img src="assets/img/testimonials/testimonials-2.jpg" class="img-fluid testimonial-img" alt="">
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 text-center">
-                                            <img src="assets/img/testimonials/testimonials-4.jpg" class="img-fluid testimonial-img" alt="">
+                                    </div>
+                                </div><!-- End testimonial item -->
+
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <div class="row gy-4 justify-content-center">
+                                            <div class="col-lg-6">
+                                                <div class="testimonial-content">
+                                                    <p>
+                                                        <i class="bi bi-quote quote-icon-left"></i>
+                                                        <span>Đội ngũ hỗ trợ khách hàng của Wish rất tận tình. Khi tôi gặp vấn đề về bảo trì xe, họ đã phản hồi rất nhanh chóng và hướng dẫn tôi tận tình. Điều này khiến tôi cảm thấy yên tâm hơn khi sử dụng sản phẩm của họ. Một trải nghiệm tuyệt vời!</span>
+                                                        <i class="bi bi-quote quote-icon-right"></i>
+                                                    </p>
+                                                    <h3>Phạm Văn C</h3>
+                                                    <h4>Khách hàng</h4>
+                                                    <div class="stars">
+                                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 text-center">
+                                                <img src="assets/img/testimonials/testimonials-3.jpg" class="img-fluid testimonial-img" alt="">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div><!-- End testimonial item -->
+                                </div><!-- End testimonial item -->
 
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <div class="row gy-4 justify-content-center">
+                                            <div class="col-lg-6">
+                                                <div class="testimonial-content">
+                                                    <p>
+                                                        <i class="bi bi-quote quote-icon-left"></i>
+                                                        <span>Xe đạp từ Wish không chỉ đẹp mà còn rất bền. Tôi đã sử dụng xe trong suốt mùa hè này, và nó vẫn như mới. Chất lượng vượt trội so với giá cả. Tôi sẽ chắc chắn giới thiệu cho bạn bè và gia đình của mình!</span>
+                                                        <i class="bi bi-quote quote-icon-right"></i>
+                                                    </p>
+                                                    <h3>Lê Văn D</h3>
+                                                    <h4>Khách hàng</h4>
+                                                    <div class="stars">
+                                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 text-center">
+                                                <img src="assets/img/testimonials/testimonials-4.jpg" class="img-fluid testimonial-img" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End testimonial item -->
+
+                            </div>
+                            <div class="swiper-pagination"></div>
                         </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-
-                </div>
-
-            </section><!-- /Testimonials Section -->
-            <!-- Contact Section -->
-            <section id="contact" class="contact section">
-
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>Contact</h2>
-                    <p><span>Need Help?</span> <span class="description-title">Contact Us</span></p>
-                </div><!-- End Section Title -->
-
-                <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                    <div class="mb-5">
-                        <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen=""></iframe>
-                    </div><!-- End Google Maps -->
-
-                    <div class="row gy-4">
-
-                        <div class="col-md-6">
-                            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
-                                <i class="icon bi bi-geo-alt flex-shrink-0"></i>
-                                <div>
-                                    <h3>Địa chỉ</h3>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
-                                </div>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="col-md-6">
-                            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
-                                <i class="icon bi bi-telephone flex-shrink-0"></i>
-                                <div>
-                                    <h3>Liên hệ với chúng tôi</h3>
-                                    <p>+84 966755095</p>
-                                </div>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="col-md-6">
-                            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
-                                <i class="icon bi bi-envelope flex-shrink-0"></i>
-                                <div>
-                                    <h3>Email</h3>
-                                    <p>wish@gmail.com</p>
-                                </div>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="col-md-6">
-                            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
-                                <i class="icon bi bi-clock flex-shrink-0"></i>
-                                <div>
-                                    <h3>Opening Hours<br></h3>
-                                    <p><strong>Mon-Sat:</strong> 11AM - 23PM; <strong>Sunday:</strong> Closed</p>
-                                </div>
-                            </div>
-                        </div><!-- End Info Item -->
 
                     </div>
 
-                    <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+                </section><!-- /Testimonials Section -->
+
+                <!-- Contact Section -->
+                <section id="contact" class="contact section">
+
+                    <!-- Section Title -->
+                    <div class="container section-title" data-aos="fade-up">
+                        <h2>Liên hệ</h2>
+                        <p><span>Bạn cần hỗ trợ? </span> <span class="description-title">Hãy liên hệ với chúng tôi</span></p>
+                    </div><!-- End Section Title -->
+
+                    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                        <div class="mb-5">
+                            <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4395.704411272685!2d105.52319011351781!3d21.012511527218305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abc60e7d3f19%3A0x2be9d7d0b5abcbf4!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBGUFQgSMOgIE7hu5lp!5e1!3m2!1svi!2s!4v1729677447161!5m2!1svi!2s" frameborder="0" allowfullscreen=""></iframe>
+                        </div><!-- End Google Maps -->
+
                         <div class="row gy-4">
 
                             <div class="col-md-6">
-                                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                            </div>
+                                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+                                    <i class="icon bi bi-geo-alt flex-shrink-0"></i>
+                                    <div>
+                                        <h3>Địa chỉ</h3>
+                                        <p>Đối diện Trường Đại học FPT Hà Nội, Khu Công Nghệ Cao Hòa Lạc, km 29, Đại lộ, Thăng Long, Hà Nội</p>
+                                    </div>
+                                </div>
+                            </div><!-- End Info Item -->
 
-                            <div class="col-md-6 ">
-                                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                            </div>
+                            <div class="col-md-6">
+                                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
+                                    <i class="icon bi bi-telephone flex-shrink-0"></i>
+                                    <div>
+                                        <h3>Liên hệ với chúng tôi</h3>
+                                        <p>+84 966799099</p>
+                                    </div>
+                                </div>
+                            </div><!-- End Info Item -->
 
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                            </div>
+                            <div class="col-md-6">
+                                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
+                                    <i class="icon bi bi-envelope flex-shrink-0"></i>
+                                    <div>
+                                        <h3>Email</h3>
+                                        <p>wish@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div><!-- End Info Item -->
 
-                            <div class="col-md-12">
-                                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                            </div>
-
-                            <div class="col-md-12 text-center">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                                <button type="submit">Send Message</button>
-                            </div>
+                            <div class="col-md-6">
+                                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
+                                    <i class="icon bi bi-clock flex-shrink-0"></i>
+                                    <div>
+                                        <h3>Thời gian hoạt động<br></h3>
+                                        <p><strong>Từ thứ 2 đến thứ 7:</strong> 7AM - 20PM</p>
+                                    </div>
+                                </div>
+                            </div><!-- End Info Item -->
 
                         </div>
-                    </form><!-- End Contact Form -->
 
-                </div>
+                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+                            <div class="row gy-4">
 
-            </section><!-- /Contact Section -->
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control" placeholder="Tên của bạn" required="">
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <input type="email" class="form-control" name="email" placeholder="Email của bạn" required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="subject" placeholder="Tiêu đề chính" required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="message" rows="6" placeholder="Nội dung" required=""></textarea>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <div class="loading">Đang gửi</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Cảm ơn bạn đã gửi phản hồi cho chúng tôi</div>
+
+                                    <button type="submit">Gửi tin nhắn</button>
+                                </div>
+
+                            </div>
+                        </form><!-- End Contact Form -->
+
+                    </div>
+
+                </section><!-- /Contact Section -->
 
         </main>
 

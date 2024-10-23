@@ -211,38 +211,7 @@ public class ProductDAO extends DBContext {
         return null;
     }
 
-    // Lấy ra sản phẩm mới nhất trong Database
-    public Product getLast() {
-        String query = "SELECT TOP 1 * FROM [product] ORDER BY [id] DESC";
-        try {
-            connect = connection.prepareStatement(query);
-            result = connect.executeQuery();
-            while (result.next()) {
-                return new Product(
-                        result.getInt(1),
-                        result.getString(2),
-                        result.getString(3),
-                        result.getDouble(4),
-                        result.getString(5),
-                        result.getString(6));
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        } finally {
-            try {
-                if (result != null) {
-                    result.close();
-                }
-                if (connect != null) {
-                    connect.close();
-                }
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-        }
-        return null;
-    }
-
+    // Thực thi việc xoá sản phẩm trong hệ thống database
     public void deleteProduct(String pid) {
         String query = "DELETE FROM [product] WHERE [id] = ?";
         try {
@@ -265,6 +234,7 @@ public class ProductDAO extends DBContext {
         }
     }
 
+    // Thêm 1 sản phẩm vào hệ thống database
     public void insertProduct(String name, String image, String price, String title, String description, String category, int sid) {
         String query = "INSERT product \n"
                 + "([name], [image], [price], [title], [description], [cateID], [sell_ID])\n"
@@ -295,6 +265,7 @@ public class ProductDAO extends DBContext {
         }
     }
 
+    // Chỉnh sửa 1 sản phẩm đã có trong database
     public void editProduct(String name, String image, String price, String title, String description, String category, String pid) {
         String query = "UPDATE [product]\n"
                 + "SET [name] = ?,\n"
@@ -328,5 +299,45 @@ public class ProductDAO extends DBContext {
                 System.out.println(e);
             }
         }
+    }
+
+    // Đề xuất ra 5 sản phẩm cùng nhóm hàng với sản phẩm hiện tại <không bao gồm sản phẩm hiện tại>
+    public List<Product> get5ProductRecommend(int cid, int curentId) {
+        List<Product> products = new ArrayList<>();
+        String query = "SELECT * FROM [Product] \n"
+                + "	WHERE [cateID] = ? AND [id] <> ? \n"
+                + "	ORDER BY NEWID() OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY";
+
+        try {
+            connect = connection.prepareStatement(query);
+            connect.setInt(1, cid);
+            connect.setInt(2, curentId);
+            result = connect.executeQuery();
+
+            while (result.next()) {
+                products.add(new Product(
+                        result.getInt(1),
+                        result.getString(2),
+                        result.getString(3),
+                        result.getDouble(4),
+                        result.getString(5),
+                        result.getString(6)));
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                if (result != null) {
+                    result.close();
+                }
+                if (connect != null) {
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return products;
     }
 }

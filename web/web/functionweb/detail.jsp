@@ -20,6 +20,8 @@
         <link href="https://fonts.googleapis.com" rel="preconnect">
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
         <!-- Vendor CSS Files -->
         <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,36 +50,27 @@
                 background-color: white;
                 border: 1px solid #ccc;
             }
-
             .dropdown:hover .dropdown-menu {
                 display: block;
             }
 
-            .search-bar input {
-                font-size: 12px;
-                padding: 5px;
-            }
-
-            .search-bar button {
-                font-size: 12px;
-                padding: 5px 10px;
-            }
-
             .navmenu ul li a {
                 font-size: 9px;
+            }
+            .icon-hover:hover {
+                border-color: #3b71ca !important;
+                background-color: white !important;
+                color: #3b71ca !important;
+            }
+
+            .icon-hover:hover i {
+                color: #3b71ca !important;
             }
 
         </style>
 
         <header id="header" class="header d-flex align-items-center sticky-top">
             <div class="container position-relative d-flex flex-column align-items-center">
-
-                <div class="w-100 d-flex justify-content-center mb-3">
-                    <form class="d-flex search-bar" action="productsearch" method="GET" style="width: 50%">
-                        <input class="form-control me-2" type="search" name="search" placeholder="Tìm kiếm sản phẩn yêu thích của bạn tại đây" aria-label="Search" value="${sessionScope.search}">
-                        <button class="btn btn-outline-danger" type="submit">Tìm kiếm</button>
-                    </form>
-                </div>
 
                 <div class="d-flex align-items-center justify-content-between w-100">
                     <a href="wish" class="logo d-flex align-items-center me-auto me-xl-0">
@@ -86,20 +79,13 @@
                         <span>.</span>
                     </a>
 
-                    <nav id="navmenu" class="navmenu">
-                        <ul>
-                            <li><a href="categorysearch" class="${empty param.cid ? 'active' : ''}">TRANG CHỦ<br></a></li>
-                                    <c:forEach items="${sessionScope.categorys}" var="category">
-                                <li>
-                                    <a href="categorysearch?cid=${category.cid}" class="${param.cid == category.cid ? 'active' : ''}">
-                                        ${category.cname}<br>
-                                    </a>
-                                </li>
-                            </c:forEach>
-                        </ul>
+                    <div class="w-100 d-flex justify-content-center mb-3">
+                        <form class="d-flex search-bar" action="productsearch" method="GET" style="width: 75%; height: 20%">
+                            <input class="form-control me-2" type="search" name="search" placeholder="Tìm kiếm sản phẩn yêu thích của bạn tại đây" aria-label="Search" value="${sessionScope.search}">
+                            <button class="btn btn-outline-danger" type="submit">Tìm kiếm</button>
+                        </form>
                         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-                    </nav>
-
+                    </div>
 
                     <c:choose>
                         <c:when test="${empty sessionScope.account}">
@@ -128,7 +114,123 @@
 
 
         <main class="main">
+            <!-- content -->
+            <section class="py-5">
+                <div class="container">
+                    <div class="row gx-5">
+                        <aside class="col-lg-6">
+                            <div class="border rounded-4 mb-3 d-flex justify-content-center">
+                                <a data-fslightbox="mygalley" class="glightbox" target="_blank" data-type="image" href="${product.image}">
+                                    <img class="img-fluid rounded-4" src="${product.image}" style="width: 100%; height: 400px; object-fit: cover;" />
+                                </a>
+                            </div>
+                        </aside>
 
+                        <main class="col-lg-6">
+                            <div class="ps-lg-3">
+                                <h1 class="title text-dark">
+                                    ${product.title}
+                                </h1>
+                                </br>
+                                <div class="mb-3">
+                                    <span class="h5">${product.price}</span>
+                                </div>
+                                </br>
+                                </br>
+                                </br>
+                                <hr />
+                                <div class="row mb-4">
+                                    <div class="col-md-4 col-6 mb-3">
+                                        <label class="mb-2 d-block">Số lượng</label>
+                                        <div class="input-group mb-3" style="width: 170px;">
+                                            <button class="btn btn-white border border-secondary px-3" type="button" id="button-minus">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                            <input type="text" id="quantity-input" class="form-control text-center border border-secondary" value="1" aria-label="Quantity" />
+                                            <button class="btn btn-white border border-secondary px-3" type="button" id="button-plus">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-danger shadow-0"> Mua ngay </a>
+                                <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Thêm vào giỏ hàng </a>
+
+                                <script>
+                                    document.getElementById('button-plus').addEventListener('click', function () {
+                                        var quantityInput = document.getElementById('quantity-input');
+                                        var currentValue = parseInt(quantityInput.value);
+                                        quantityInput.value = currentValue + 1;
+                                    });
+
+                                    document.getElementById('button-minus').addEventListener('click', function () {
+                                        var quantityInput = document.getElementById('quantity-input');
+                                        var currentValue = parseInt(quantityInput.value);
+                                        if (currentValue > 1) {
+                                            quantityInput.value = currentValue - 1;
+                                        }
+                                    });
+                                </script>
+
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </section>
+            <!-- content -->
+
+            <section class="bg-light border-top py-4">
+                <div class="container">
+                    <div class="row gx-4">
+                        <div class="col-lg-8 mb-4">
+                            <div class="border rounded-2 px-3 py-2 bg-white">
+                                <!-- Pills navs -->
+                                <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                                    <li class="nav-item d-flex" role="presentation">
+                                        <a class="nav-link d-flex align-items-center justify-content-center w-100 active bg-danger text-white" id="ex1-tab-1" data-mdb-toggle="pill" href="#ex1-pills-1" role="tab" aria-controls="ex1-pills-1" aria-selected="true">Thông tin chi tiết sản phẩm</a>
+                                    </li>
+                                </ul>
+                                <!-- Pills navs -->
+
+                                <!-- Pills content -->
+                                <div class="tab-content" id="ex1-content">
+                                    <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+                                        <p>
+                                            ${product.description}
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Pills content -->
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="px-0 border rounded-2 shadow-0">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sản phẩm cùng loại</h5>
+                                        <c:forEach items="${sessionScope.recommnentProducts}" var="recommnentProduct">
+                                            <div class="d-flex mb-3">
+                                                <a href="#" class="me-3">
+                                                    <div style="width: 96px; height: 96px; overflow: hidden;">
+                                                        <img src="${recommnentProduct.image}" class="img-fluid" style="width: 100%; height: auto;" />
+                                                    </div>
+                                                </a>
+                                                <div class="info">
+                                                    <a href="detail?id=${recommnentProduct.id}" class="nav-link mb-1">
+                                                        ${recommnentProduct.title}
+                                                    </a>
+                                                    <strong class="text-dark">${recommnentProduct.price}</strong>
+                                                </div>
+                                            </div>
+                                        </c:forEach>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <jsp:include page="../layout/footer.jsp"></jsp:include>

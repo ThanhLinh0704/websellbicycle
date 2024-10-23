@@ -21,10 +21,16 @@ public class ProductDetailServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         ProductDAO productDAO = new ProductDAO();
+        CategoryDAO categoryDAO = new CategoryDAO();
 
-        List<Product> products = productDAO.getTop3();
+        String id = request.getParameter("id");
+        int cid = categoryDAO.getCategoryIDByProductID(Integer.parseInt(id));
 
-        session.setAttribute("products", products);
+        Product product = productDAO.getProductByID(Integer.parseInt(id));
+        List<Product> recommnentProducts = productDAO.get5ProductRecommend(cid, Integer.parseInt(id));
+
+        session.setAttribute("product", product);
+        session.setAttribute("recommnentProducts", recommnentProducts);
         request.getRequestDispatcher("web/functionweb/detail.jsp").forward(request, response);
 
     }

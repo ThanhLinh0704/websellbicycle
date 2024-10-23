@@ -147,7 +147,11 @@
                                 <c:forEach items="${sessionScope.products}" var="product">
                                     <div class="col-lg-3 menu-item">
                                         <a href="${product.image}" class="glightbox">
-                                            <img src="${product.image}" class="menu-img img-fluid" alt="" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23e0e0e0%22/%3E%3C/svg%3E';">
+                                            <div style="width: 100%; height: 200px; overflow: hidden;">
+                                                <img src="${product.image}" class="menu-img img-fluid" alt=""
+                                                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23e0e0e0%22/%3E%3C/svg%3E';" 
+                                                     style="width: 100%; height: auto;" />
+                                            </div>
                                         </a>
                                         <a href="detail?id=${product.id}">
                                             <h4>${product.name}</h4>
@@ -160,6 +164,7 @@
                                         </p>
                                     </div><!-- Menu Item -->
                                 </c:forEach>
+
                             </div>
                         </div><!-- End Starter Menu Content -->
                     </div>
