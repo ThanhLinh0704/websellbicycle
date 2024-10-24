@@ -40,16 +40,6 @@ CREATE TABLE [dbo].[User]
 		ON DELETE CASCADE
 )
 
-CREATE TABLE [dbo].[Cart]
-(	
-	[id] [int] IDENTITY(1, 1) NOT NULL,
-	[AccountID] [int] NULL,
-	[ProductID] [int] NULL,
-	[Amount] [int] NULL,
-	PRIMARY KEY ([id])
-)
-
-
 CREATE TABLE [dbo].[Category]
 (
 	[cid] [int] IDENTITY(1, 1) NOT NULL,
@@ -59,7 +49,7 @@ CREATE TABLE [dbo].[Category]
 
 CREATE TABLE [dbo].[Product]
 (
-	[id] [int] IDENTITY(1,1) NOT NULL,
+	[pid] [int] IDENTITY(1,1) NOT NULL,
 	[name] [nvarchar](255) NULL,
 	[image] [nvarchar](255) NULL,
 	[price] [money] NULL,
@@ -67,8 +57,30 @@ CREATE TABLE [dbo].[Product]
 	[description] [nvarchar](255) NULL,
 	[cateID] [int] NULL,
 	[sell_ID] [int] NULL,
-	PRIMARY KEY ([id])
+	PRIMARY KEY ([pid]),
+	CONSTRAINT [FK_User_Product] FOREIGN KEY ([cateID]) REFERENCES [dbo].[Category]([cid])
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
 )
+
+CREATE TABLE [dbo].[Cart]
+(	
+	[id] [int] IDENTITY(1, 1) NOT NULL,
+	[accountID] [int] NOT NULL,
+	[productID] [int] NOT NULL,
+	[amount] [int] NOT NULL,
+	[created_at] DATETIME DEFAULT GETDATE()
+	PRIMARY KEY ([id], [accountID], [productID]),
+
+	CONSTRAINT [FK_Cart_Product] FOREIGN KEY ([productID]) REFERENCES [dbo].[Product]([pid])
+		ON UPDATE CASCADE
+		ON DELETE CASCADE,
+
+	CONSTRAINT [FK_Cart_User] FOREIGN KEY ([accountID]) REFERENCES [dbo].[Account]([uID])
+		ON UPDATE CASCADE
+		ON DELETE CASCADE,
+)
+
 GO
 
 SET IDENTITY_INSERT [dbo].[Account] ON 
@@ -96,7 +108,7 @@ SET IDENTITY_INSERT [dbo].[Category] OFF
 GO
 
 SET IDENTITY_INSERT [dbo].[Product] ON 
-INSERT [dbo].[Product] ([id], [name], [image], [price], [title], [description], [cateID], [sell_ID]) 
+INSERT [dbo].[Product] ([pid], [name], [image], [price], [title], [description], [cateID], [sell_ID]) 
 VALUES 
     (1, N'MTB 26 – 02', N'picture\BasicalBicycle\MTB26 –02.png', 2990000, N'Xe đạp phổ thông MTB 26 – 02', N'Xe đạp phổ thông MTB 26 – 02', 1, 1),
     (2, N'NEW 24” 2023', N'picture\BasicalBicycle\NEW24”2023.png', 2590000, N'Xe đạp phổ thông NEW 24” 2023', N'Xe đạp phổ thông NEW 24” 2023', 1, 1),

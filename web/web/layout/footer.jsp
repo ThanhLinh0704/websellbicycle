@@ -40,10 +40,10 @@
             <div class="col-lg-3 col-md-6">
                 <h4>Theo dõi chúng tôi tại</h4>
                 <div class="social-links d-flex">
-                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="youtute"><i class="bi bi-youtube"></i></a>
-                    <a href="#" class="tiktok"><i class="bi bi-tiktok"></i></a>
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.youtube.com/" class="youtute"><i class="bi bi-youtube"></i></a>
+                    <a href="https://www.tiktok.com/" class="tiktok"><i class="bi bi-tiktok"></i></a>
+                    <a href="https://www.instagram.com/" class="instagram"><i class="bi bi-instagram"></i></a>
                 </div>
             </div>
 

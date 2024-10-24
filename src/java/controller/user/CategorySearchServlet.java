@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import dao.*;
 import entity.*;
@@ -9,8 +9,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.PrintWriter;
+import java.util.List;
 
-public class LogoutServlet extends HttpServlet {
+public class CategorySearchServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -19,16 +20,24 @@ public class LogoutServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         HttpSession session = request.getSession();
-        session.invalidate();
+        ProductDAO productDAO = new ProductDAO();
 
-        response.sendRedirect("wish");
+        String cid = request.getParameter("cid");
+
+        List<Product> products;
+        if (cid != null) {
+            products = productDAO.getProductByCID(Integer.parseInt(cid));
+        } else {
+            products = productDAO.getAllProduct();
+        }
+
+        session.setAttribute("products", products);
+        request.getRequestDispatcher("web/functionweb/product.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
     }
 
 }

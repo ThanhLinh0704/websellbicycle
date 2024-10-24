@@ -1,6 +1,7 @@
 <%@page import="java.text.*"%>
 <%@page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -160,7 +161,7 @@
                                             ${product.title}
                                         </p>
                                         <p class="price">
-                                            ${product.price}
+                                            <fmt:formatNumber value="${product.price}" type="number" pattern="#,##0"/>đ
                                         </p>
                                     </div><!-- Menu Item -->
                                 </c:forEach>

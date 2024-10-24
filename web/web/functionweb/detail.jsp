@@ -1,6 +1,7 @@
 <%@page import="java.text.*"%>
 <%@page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -131,30 +132,34 @@
                                 <h1 class="title text-dark">
                                     ${product.title}
                                 </h1>
-                                </br>
+                                <br />
                                 <div class="mb-3">
-                                    <span class="h5">${product.price}</span>
+                                    <span class="h5"><fmt:formatNumber value="${product.price}" type="number" pattern="#,##0"/>đ</span>
                                 </div>
-                                </br>
-                                </br>
-                                </br>
+                                <br /><br /><br />
                                 <hr />
-                                <div class="row mb-4">
-                                    <div class="col-md-4 col-6 mb-3">
-                                        <label class="mb-2 d-block">Số lượng</label>
-                                        <div class="input-group mb-3" style="width: 170px;">
-                                            <button class="btn btn-white border border-secondary px-3" type="button" id="button-minus">
-                                                <i class="fas fa-minus"></i>
-                                            </button>
-                                            <input type="text" id="quantity-input" class="form-control text-center border border-secondary" value="1" aria-label="Quantity" />
-                                            <button class="btn btn-white border border-secondary px-3" type="button" id="button-plus">
-                                                <i class="fas fa-plus"></i>
-                                            </button>
+                                <form action="addproductorder" method="GET">
+                                    <div class="row mb-4">
+                                        <div class="col-md-4 col-6 mb-3">
+                                            <label class="mb-2 d-block">Số lượng</label>
+                                            <div class="input-group mb-3" style="width: 170px;">
+                                                <button class="btn btn-white border border-secondary px-3" type="button" id="button-minus">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <input type="hidden" name="id" value="${product.id}" />
+                                                <input type="text" id="quantity-input" class="form-control text-center border border-secondary" name="quantity" value="1" aria-label="Quantity" />
+                                                <button class="btn btn-white border border-secondary px-3" type="button" id="button-plus">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label>${requestScope.error}</label>
                                         </div>
                                     </div>
-                                </div>
-                                <a href="#" class="btn btn-danger shadow-0"> Mua ngay </a>
-                                <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Thêm vào giỏ hàng </a>
+                                        <button type="submit" class="btn btn-primary shadow-0" name="action" value="addToCart"> <i class="me-1 fa fa-shopping-basket"></i> Thêm vào giỏ hàng </button>
+                                    <button type="submit" class="btn btn-danger shadow-0" name="action" value="buyNow"> <i class="me-1 fa fa-shopping-basket"></i> Mua ngay </button>
+                                </form>
 
                                 <script>
                                     document.getElementById('button-plus').addEventListener('click', function () {
@@ -174,6 +179,7 @@
 
                             </div>
                         </main>
+
                     </div>
                 </div>
             </section>
