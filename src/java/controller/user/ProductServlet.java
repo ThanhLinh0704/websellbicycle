@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import dao.*;
 import entity.*;
@@ -11,22 +11,22 @@ import jakarta.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class ProductSearchServlet extends HttpServlet {
+public class ProductServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
 
         HttpSession session = request.getSession();
         ProductDAO productDAO = new ProductDAO();
-        String search = request.getParameter("search");
+        CategoryDAO categoryDAO = new CategoryDAO();
 
-        List<Product> products = productDAO.searchByName(search);
+        List<Category> categorys = categoryDAO.getAllCategory();
+        List<Product> products = productDAO.getAllProduct();
 
+        session.setAttribute("categorys", categorys);
         session.setAttribute("products", products);
-        session.setAttribute("search", search);
         request.getRequestDispatcher("web/functionweb/product.jsp").forward(request, response);
     }
 
@@ -36,5 +36,8 @@ public class ProductSearchServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
+        request.getRequestDispatcher("web/functionweb/product.jsp").forward(request, response);
+
     }
+
 }

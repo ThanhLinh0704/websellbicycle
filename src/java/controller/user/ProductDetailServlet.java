@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import dao.*;
 import entity.*;
@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class HomeServlet extends HttpServlet {
+public class ProductDetailServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -21,11 +21,17 @@ public class HomeServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         ProductDAO productDAO = new ProductDAO();
+        CategoryDAO categoryDAO = new CategoryDAO();
 
-        List<Product> products = productDAO.getTop3();
+        String id = request.getParameter("id");
+        int cid = categoryDAO.getCategoryIDByProductID(Integer.parseInt(id));
 
-        session.setAttribute("products", products);
-        request.getRequestDispatcher("web/home.jsp").forward(request, response);
+        Product product = productDAO.getProductByID(Integer.parseInt(id));
+        List<Product> recommnentProducts = productDAO.get5ProductRecommend(cid, Integer.parseInt(id));
+
+        session.setAttribute("product", product);
+        session.setAttribute("recommnentProducts", recommnentProducts);
+        request.getRequestDispatcher("web/functionweb/detail.jsp").forward(request, response);
 
     }
 
@@ -35,7 +41,7 @@ public class HomeServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        request.getRequestDispatcher("web/home.jsp").forward(request, response);
+        request.getRequestDispatcher("web/functionweb/detail.jsp").forward(request, response);
 
     }
 

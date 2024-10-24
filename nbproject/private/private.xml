@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/web/web/functionweb/product.jsp</file>
+            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/web/web/functionweb/detail.jsp</file>
+            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/web/web/cart/cart.jsp</file>
+            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/src/java/controller/user/UpdateQuantityProductOrderServlet.java</file>
+            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/src/java/controller/user/AddProductOrderServlet.java</file>
+        </group>
     </open-files>
 </project-private>

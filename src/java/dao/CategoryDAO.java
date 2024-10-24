@@ -41,7 +41,7 @@ public class CategoryDAO extends DBContext {
 
     // Lấy ra mã của nhóm hàng dựa trên mã sản phẩm
     public int getCategoryIDByProductID(int id) {
-        String query = "SELECT [cateID] FROM [Product] WHERE [id] = ?";
+        String query = "SELECT [cateID] FROM [Product] WHERE [pid] = ?";
         int cateID = 0;
         try {
             connect = connection.prepareStatement(query);

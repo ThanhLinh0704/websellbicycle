@@ -46,7 +46,7 @@ public class ProductDAO extends DBContext {
     // Lấy ra 3 sản phẩm mới nhất được thêm vào trong Database
     public List<Product> getTop3() {
         List<Product> products = new ArrayList<>();
-        String query = "SELECT TOP 3 * FROM [product] ORDER BY [id] DESC";
+        String query = "SELECT TOP 3 * FROM [product] ORDER BY [pid] DESC";
         try {
             connect = connection.prepareStatement(query);
             result = connect.executeQuery();
@@ -180,7 +180,7 @@ public class ProductDAO extends DBContext {
 
     // Lấy sản phẩm trong database có cùng chỉ số id
     public Product getProductByID(int id) {
-        String query = "SELECT * FROM [product] WHERE [id] = ?";
+        String query = "SELECT * FROM [product] WHERE [pid] = ?";
         try {
             connect = connection.prepareStatement(query);
             connect.setInt(1, id);
@@ -213,7 +213,7 @@ public class ProductDAO extends DBContext {
 
     // Thực thi việc xoá sản phẩm trong hệ thống database
     public void deleteProduct(String pid) {
-        String query = "DELETE FROM [product] WHERE [id] = ?";
+        String query = "DELETE FROM [product] WHERE [pid] = ?";
         try {
             connect = connection.prepareStatement(query);
             connect.setString(1, pid);
@@ -305,7 +305,7 @@ public class ProductDAO extends DBContext {
     public List<Product> get5ProductRecommend(int cid, int curentId) {
         List<Product> products = new ArrayList<>();
         String query = "SELECT * FROM [Product] \n"
-                + "	WHERE [cateID] = ? AND [id] <> ? \n"
+                + "	WHERE [cateID] = ? AND [pid] <> ? \n"
                 + "	ORDER BY NEWID() OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY";
 
         try {
