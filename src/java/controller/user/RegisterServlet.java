@@ -29,11 +29,12 @@ public class RegisterServlet extends HttpServlet {
         HttpSession session = request.getSession();
         LoginDAO loginDAO = new LoginDAO();
 
-        String username = request.getParameter("user");;
-        String password = request.getParameter("pass");;
+        String username = request.getParameter("user");
+        String password = request.getParameter("pass");
         String passwordCheck = request.getParameter("passCheck");
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
         Boolean gender = "male".equals(request.getParameter("gender"));
 
         try {
@@ -48,6 +49,7 @@ public class RegisterServlet extends HttpServlet {
                 session.setAttribute("name", name);
                 session.setAttribute("dob", request.getParameter("dob"));
                 session.setAttribute("phone", phone);
+                session.setAttribute("address", address);
                 session.setAttribute("gender", gender);
                 response.sendRedirect("register");
                 return;
@@ -62,12 +64,13 @@ public class RegisterServlet extends HttpServlet {
                 session.setAttribute("name", name);
                 session.setAttribute("dob", request.getParameter("dob"));
                 session.setAttribute("phone", phone);
+                session.setAttribute("address", address);
                 session.setAttribute("gender", gender);
                 response.sendRedirect("register");
                 return;
             }
 
-            loginDAO.signup(username, password, name, gender, dob, phone);
+            loginDAO.signup(username, password, name, gender, dob, phone, address);
             session.setMaxInactiveInterval(1000);
             response.sendRedirect("wish");
 
@@ -79,6 +82,7 @@ public class RegisterServlet extends HttpServlet {
             session.setAttribute("name", name);
             session.setAttribute("dob", request.getParameter("dob"));
             session.setAttribute("phone", phone);
+            session.setAttribute("address", address);
             session.setAttribute("gender", gender);
             response.sendRedirect("register");
         }

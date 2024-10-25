@@ -9,16 +9,18 @@ public class User {
     private boolean gender;
     private Date dob;
     private String phone;
+    private String address;
 
     public User() {
     }
 
-    public User(int id, String name, boolean gender, Date dob, String phone) {
+    public User(int id, String name, boolean gender, Date dob, String phone, String address) {
         this.id = id;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.phone = phone;
+        this.address = address;
     }
 
     public int getId() {
@@ -61,9 +63,17 @@ public class User {
         this.phone = phone;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", dob=" + dob + ", phone=" + phone + '}';
+        return "User{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", dob=" + dob + ", phone=" + phone + ", address=" + address + '}';
     }
 
 }

@@ -34,6 +34,7 @@ CREATE TABLE [dbo].[User]
     [gender] [bit]  NOT NULL,
 	[dob] [date] NULL,
     [phone] [varchar](11) NULL,
+	[address] [nvarchar](255) NULL,
 	PRIMARY KEY ([uID]),
     CONSTRAINT [FK_User_Account] FOREIGN KEY ([uID]) REFERENCES [dbo].[Account]([uID])
 		ON UPDATE CASCADE

@@ -73,8 +73,21 @@
         <servlet-class>controller.user.UpdateQuantityProductOrderServlet</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
+        <servlet-name>InformationUserServlet</servlet-name>
+        <servlet-class>controller.user.InformationUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateInformationUserServlet</servlet-name>
+        <servlet-class>controller.user.UpdateInformationUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePassUserServlet</servlet-name>
+        <servlet-class>controller.user.ChangePassUserServlet</servlet-class>
+=======
         <servlet-name>PagingController</servlet-name>
         <servlet-class>controller.PagingController</servlet-class>
+>>>>>>> b4592cbe0877484c409b63a4499bf7bffad0a8d3
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
@@ -149,10 +162,26 @@
         <url-pattern>/updatequantityproductorder</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
+        <servlet-name>InformationUserServlet</servlet-name>
+        <url-pattern>/info</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateInformationUserServlet</servlet-name>
+        <url-pattern>/updateinformationuser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePassUserServlet</servlet-name>
+        <url-pattern>/changepassuser</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>/wish</welcome-file>
+=======
         <servlet-name>PagingController</servlet-name>
         <url-pattern>/paging</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
+>>>>>>> b4592cbe0877484c409b63a4499bf7bffad0a8d3
     </welcome-file-list>
 </web-app>
