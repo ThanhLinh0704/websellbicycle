@@ -10,32 +10,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class EditController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        String pid = request.getParameter("id");
-        String pname = request.getParameter("name");
-        String pimage = request.getParameter("image");
-        String pprice = request.getParameter("price");
-        String ptitle = request.getParameter("title");
-        String pdescription = request.getParameter("description");
-        String pcategory = request.getParameter("category");
-        ProductDAO dbProduct  = new ProductDAO();
-        dbProduct.editProduct(pname, pimage, pprice, ptitle, pdescription, pcategory, pid);
-        response.sendRedirect("manager");
-    }
+    
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+   
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -47,7 +24,7 @@ public class EditController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
     /**
@@ -61,7 +38,23 @@ public class EditController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        String pid = request.getParameter("id");
+        String pname = request.getParameter("name");
+        String pimage = request.getParameter("image");
+        String pprice = request.getParameter("price");
+        String ptitle = request.getParameter("title");
+        String pdescription = request.getParameter("description");
+        String pcategory = request.getParameter("category");
+        
+        int id = Integer.parseInt(pid);
+        double price = Double.parseDouble(pprice);
+        int cate = Integer.parseInt(pcategory);
+     
+        ProductDAO dbProduct  = new ProductDAO();
+        dbProduct.editProduct2(pname, pimage, price, ptitle, pdescription, cate, id);
+//        dbProduct.editProduct(pname, pimage, pprice, ptitle, pdescription, pcategory, pid);
+        request.getRequestDispatcher("paging").forward(request, response);
     }
 
     /**

@@ -4,13 +4,15 @@ import dal.DBContext;
 import entity.*;
 import java.util.*;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ProductDAO extends DBContext {
 
     PreparedStatement connect = null;
     ResultSet result = null;
 
-    // Lấy tất cả sản phẩm có trong Database
+    
     public List<Product> getAllProduct() {
         List<Product> products = new ArrayList<>();
         String query = "SELECT * FROM [product]";
@@ -43,7 +45,7 @@ public class ProductDAO extends DBContext {
         return products;
     }
 
-    // Lấy ra 3 sản phẩm mới nhất được thêm vào trong Database
+   
     public List<Product> getTop3() {
         List<Product> products = new ArrayList<>();
         String query = "SELECT TOP 3 * FROM [product] ORDER BY [pid] DESC";
@@ -76,7 +78,7 @@ public class ProductDAO extends DBContext {
         return products;
     }
 
-    // Lấy tất cả sản phẩm trong database có cùng chỉ số cateID
+    
     public List<Product> getProductByCID(int cid) {
         List<Product> products = new ArrayList<>();
         String query = "SELECT * FROM [product] WHERE [cateID] = ?";
@@ -110,7 +112,7 @@ public class ProductDAO extends DBContext {
         return products;
     }
 
-    // Lấy tất cả sản phẩm trong database có cùng chỉ số sell_ID
+    
     public List<Product> getProductBySellID(int sid) {
         List<Product> list = new ArrayList<>();
         String query = "SELECT * FROM [product] WHERE [sell_ID] = ?";
@@ -144,7 +146,7 @@ public class ProductDAO extends DBContext {
         return list;
     }
 
-    //Tìm kiếm sản phẩm trong Database theo tên
+    
     public List<Product> searchByName(String txtSearch) {
         List<Product> list = new ArrayList<>();
         String query = "SELECT * FROM [product] WHERE [name] LIKE ?";
@@ -178,7 +180,7 @@ public class ProductDAO extends DBContext {
         return list;
     }
 
-    // Lấy sản phẩm trong database có cùng chỉ số id
+    
     public Product getProductByID(int id) {
         String query = "SELECT * FROM [product] WHERE [pid] = ?";
         try {
@@ -211,7 +213,7 @@ public class ProductDAO extends DBContext {
         return null;
     }
 
-    // Thực thi việc xoá sản phẩm trong hệ thống database
+    
     public void deleteProduct(String pid) {
         String query = "DELETE FROM [product] WHERE [pid] = ?";
         try {
@@ -234,7 +236,7 @@ public class ProductDAO extends DBContext {
         }
     }
 
-    // Thêm 1 sản phẩm vào hệ thống database
+    
     public void insertProduct(String name, String image, String price, String title, String description, String category, int sid) {
         String query = "INSERT product \n"
                 + "([name], [image], [price], [title], [description], [cateID], [sell_ID])\n"
@@ -264,44 +266,34 @@ public class ProductDAO extends DBContext {
             }
         }
     }
+    
+  public void editProduct2(String name, String image, double price, String title, String description, int category, int pid) {
+    String sql = "UPDATE [dbo].[Product] " +
+                 "SET [name] = ?, " +
+                 "[image] = ?, " +
+                 "[price] = ?, " +
+                 "[title] = ?, " +
+                 "[description] = ?, " +
+                 "[cateID] = ? " +
+                 "WHERE Product.pid = ?";
 
-    // Chỉnh sửa 1 sản phẩm đã có trong database
-    public void editProduct(String name, String image, String price, String title, String description, String category, String pid) {
-        String query = "UPDATE [product]\n"
-                + "SET [name] = ?,\n"
-                + "[image] = ?,\n"
-                + "[price] = ?,\n"
-                + "[title] = ?,\n"
-                + "[description] = ?,\n"
-                + "[cateID] = ?\n"
-                + "WHERE [id] = ?";
-        try {
-            connect = connection.prepareStatement(query);
-            connect.setString(1, name);
-            connect.setString(2, image);
-            connect.setString(3, price);
-            connect.setString(4, title);
-            connect.setString(5, description);
-            connect.setString(6, category);
-            connect.setString(7, pid);
-            connect.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        } finally {
-            try {
-                if (result != null) {
-                    result.close();
-                }
-                if (connect != null) {
-                    connect.close();
-                }
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-        }
+    try {
+        PreparedStatement stm = connection.prepareStatement(sql);
+        stm.setString(1, name);
+        stm.setString(2, image);
+        stm.setDouble(3, price);
+        stm.setString(4, title);
+        stm.setString(5, description);
+        stm.setInt(6, category);
+        stm.setInt(7, pid);
+        stm.executeUpdate();
+
+    } catch (SQLException ex) {
+        Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+}
 
-    // Đề xuất ra 5 sản phẩm cùng nhóm hàng với sản phẩm hiện tại <không bao gồm sản phẩm hiện tại>
+   
     public List<Product> get5ProductRecommend(int cid, int curentId) {
         List<Product> products = new ArrayList<>();
         String query = "SELECT * FROM [Product] \n"
@@ -340,4 +332,6 @@ public class ProductDAO extends DBContext {
         }
         return products;
     }
+    
+  
 }

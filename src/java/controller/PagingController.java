@@ -1,14 +1,28 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package controller;
 
-import dao.ProductDAO;
+import dao.CategoryDAO;
+import dao.PageDAO;
+import entity.Account;
+import entity.Category;
+import entity.Product;
 import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.List;
 
-public class DeleteController extends HttpServlet {
+/**
+ *
+ * @author laptop lenovo
+ */
+public class PagingController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -22,10 +36,40 @@ public class DeleteController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String pid = request.getParameter("pid");
-        ProductDAO dbProduct = new ProductDAO();
-        dbProduct.deleteProduct(pid);
-        response.sendRedirect("paging");
+        HttpSession session = request.getSession();
+    Account a = (Account) session.getAttribute("account");
+    
+    // Check if the account is null and redirect to login if necessary
+    if (a == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+    
+    int id = a.getIsSell(); // Seller ID
+    
+    // Get the index for pagination, default to page 1 if not provided
+    String index = request.getParameter("index");
+    int indexPage;
+    try {
+        indexPage = (index == null) ? 1 : Integer.parseInt(index);
+    } catch (NumberFormatException e) {
+        indexPage = 1; // Fallback to page 1 in case of invalid input
+    }
+    
+    // DAO initialization
+    PageDAO dbPage = new PageDAO();
+    CategoryDAO dbCategory = new CategoryDAO();
+    
+    // Fetch categories and products
+    List<Category> listC = dbCategory.getAllCategory();
+    List<Product> list = dbPage.getPaging(indexPage, id);
+    
+    // Set attributes to pass to the JSP page
+    request.setAttribute("listCC", listC);
+    request.setAttribute("listP", list);
+    
+    // Forward to the JSP page for rendering
+    request.getRequestDispatcher("ManagerProduct.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

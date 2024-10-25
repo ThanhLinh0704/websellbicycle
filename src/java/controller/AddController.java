@@ -37,7 +37,7 @@ public class AddController extends HttpServlet {
         int sid = a.getIsSell();      
         ProductDAO dbProduct = new ProductDAO();
         dbProduct.insertProduct(pname, pimage, pprice, ptitle, pdescription, pcategory, sid);
-        response.sendRedirect("manager");
+        response.sendRedirect("paging");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
