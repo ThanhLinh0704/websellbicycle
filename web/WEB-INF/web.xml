@@ -72,7 +72,10 @@
         <servlet-name>UpdateQuantityProductOrderServlet</servlet-name>
         <servlet-class>controller.user.UpdateQuantityProductOrderServlet</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>PagingController</servlet-name>
+        <servlet-class>controller.PagingController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/wish</url-pattern>
@@ -144,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>UpdateQuantityProductOrderServlet</servlet-name>
         <url-pattern>/updatequantityproductorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PagingController</servlet-name>
+        <url-pattern>/paging</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

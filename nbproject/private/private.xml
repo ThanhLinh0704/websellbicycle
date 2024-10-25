@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/web/web/functionweb/product.jsp</file>
-            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/web/web/functionweb/detail.jsp</file>
-            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/web/web/cart/cart.jsp</file>
-            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/src/java/controller/user/UpdateQuantityProductOrderServlet.java</file>
-            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/src/java/controller/user/AddProductOrderServlet.java</file>
+            <file>file:/H:/SE_1885/websellbicycle/src/java/controller/EditController.java</file>
+            <file>file:/H:/SE_1885/websellbicycle/src/java/dao/ProductDAO.java</file>
+            <file>file:/H:/SE_1885/websellbicycle/web/Edit.jsp</file>
+            <file>file:/H:/SE_1885/websellbicycle/web/ManagerProduct.jsp</file>
         </group>
     </open-files>
 </project-private>
