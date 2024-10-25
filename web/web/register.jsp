@@ -102,7 +102,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating mb-3">
-                                                <input type="date" class="form-control" name="dob" id="dob" required value="${sessionScope.dob}">
+                                                <input type="date" class="form-control" name="dob" id="dob"  placeholder="" required value="${sessionScope.dob}">
                                                 <label for="dob" class="form-label">Ngày tháng năm sinh</label>
                                             </div>
                                         </div>
@@ -110,26 +110,39 @@
                                             <div class="form-floating mb-3">
                                                 <input type="text" class="form-control" name="phone" id="phone" placeholder="" required pattern="\d{9,11}" value="${sessionScope.phone}">
                                                 <label for="phone" class="form-label">Số điện thoại</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" name="address" id="address"  placeholder="" required value="${sessionScope.address}">
+                                                <label for="address" class="form-label">Địa chỉ</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <h6 class="mb-2 pb-1" style="font-family: sans-serif">Giới tính </h6>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gender" id="maleGender" value="male" ${requestScope.gender == null || requestScope.gender == 'male' ? 'checked' : ''}/>
+                                                <label class="form-check-label" for="maleGender">Nam</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="female" ${requestScope.gender == 'female' ? 'checked' : ''}/>
+                                                <label class="form-check-label" for="femaleGender">Nữ</label>
+                                            </div>
+                                        </div>
 
+                                        <div class="col-12">
+                                            <div class="d-grid">
+                                                <button class="btn bsb-btn-2xl btn-danger" type="submit">Đăng kí</button>
                                             </div>
-                                            <div class="col-md-6 mb-4">
-                                                <h6 class="mb-2 pb-1" style="font-family: sans-serif">Giới tính </h6>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="maleGender" value="male" ${requestScope.gender == null || requestScope.gender == 'male' ? 'checked' : ''}/>
-                                                    <label class="form-check-label" for="maleGender">Nam</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="female" ${requestScope.gender == 'female' ? 'checked' : ''}/>
-                                                    <label class="form-check-label" for="femaleGender">Nữ</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="d-grid">
-                                                    <button class="btn bsb-btn-2xl btn-danger" type="submit">Đăng kí</button>
-                                                </div>
-                                            </div>
+                                        </div>
                                     </form>
+                                    <div class="row" style="text-align: center">
+                                        <div class="col-12">
+                                            <hr class="mt-5 mb-4 border-secondary-subtle">
+                                            <label>Bạn đã có tài khoản </label>
+                                            <a href="login" style="color: red">Đăng nhập tại đây!</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

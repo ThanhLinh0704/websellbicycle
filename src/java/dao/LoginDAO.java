@@ -10,6 +10,37 @@ public class LoginDAO extends DBContext {
     PreparedStatement connect1 = null;
     ResultSet result = null;
 
+    public Account getAccount(int id) {
+        String query = "SELECT * FROM [Account] WHERE [uID] = ?";
+        try {
+            connect = connection.prepareStatement(query);
+            connect.setInt(1, id);
+            result = connect.executeQuery();
+            while (result.next()) {
+                return new Account(
+                        result.getInt(1),
+                        result.getString(2),
+                        result.getString(3),
+                        result.getInt(4),
+                        result.getInt(5));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                if (result != null) {
+                    result.close();
+                }
+                if (connect != null) {
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return null;
+    }
+
     public Account login(String user, String pass) {
         String query = "SELECT * FROM [account] WHERE [user] = ? AND [pass] = ?";
         try {
@@ -73,9 +104,9 @@ public class LoginDAO extends DBContext {
         return null;
     }
 
-    public void signup(String user, String pass, String name, Boolean gender, Date dob, String phone) {
+    public void signup(String user, String pass, String name, Boolean gender, Date dob, String phone, String address) {
         String insertAccountSQL = "INSERT [Account] ([user], [pass], [isSell], [isAdmin]) VALUES (?, ?, ?, ?)";
-        String insertUserSQL = "INSERT [User]([uID], [name], [gender], [dob], [phone]) VALUES (?, ?, ?, ?, ?)";
+        String insertUserSQL = "INSERT [User]([uID], [name], [gender], [dob], [phone], [address]) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             connect = connection.prepareStatement(insertAccountSQL, Statement.RETURN_GENERATED_KEYS);
@@ -97,6 +128,7 @@ public class LoginDAO extends DBContext {
             connect1.setBoolean(3, gender);
             connect1.setDate(4, dob);
             connect1.setString(5, phone);
+            connect1.setString(6, address);
             connect1.executeUpdate();
 
             connection.commit();
@@ -132,7 +164,8 @@ public class LoginDAO extends DBContext {
                         result.getString(2),
                         result.getBoolean(3),
                         result.getDate(4),
-                        result.getString(5));
+                        result.getString(5),
+                        result.getString(6));
             }
         } catch (SQLException e) {
             System.out.println(e);
