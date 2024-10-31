@@ -13,8 +13,8 @@ public class DBContext {
     private final String serverName = "localhost";
     private final String dbName = "wish";
     private final String portNumber = "1433";
-    private final String userName = "se1885";
-    private final String password = "12345678";
+    private final String userName = "sa";
+    private final String password = "sa";
 
     public DBContext() {
         try {

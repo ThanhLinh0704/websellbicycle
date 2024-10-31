@@ -39,7 +39,7 @@ public class ProductOrderDAO extends DBContext {
 
     public List<ProductOrder> getAllProductOrder(int accountID) {
         List<ProductOrder> productOrders = new ArrayList<>();
-        String query = "SELECT p.[pid],  p.[name], p.[title], p.[image], p.[price], SUM(c.[amount]) FROM Cart c\n"
+        String query = "SELECT p.[pid],  p.[name], p.[title], p.[image], p.[price], SUM(c.[amount]) FROM [Cart] c\n"
                 + "	JOIN [Product] p ON p.[pid] = c.ProductID\n"
                 + "	WHERE\n"
                 + "		c.[accountID] = ?\n"
@@ -99,5 +99,62 @@ public class ProductOrderDAO extends DBContext {
                 System.out.println(e);
             }
         }
+    }
+    
+    public void resetCartForUser(int accountID) {
+        String query = "DELETE FROM [Cart] WHERE [accountID] = ?";
+        try {
+            connect = connection.prepareStatement(query);
+            connect.setInt(1, accountID);
+            connect.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                if (result != null) {
+                    result.close();
+                }
+                if (connect != null) {
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+    }
+
+    public ProductOrder getTheReleaseProductOrder(int pid) {
+        String query = "SELECT TOP 1 p.[pid],  p.[name], p.[title], p.[image], p.[price], c.[amount] FROM [Cart] c JOIN [Product] p ON p.[pid] = c.[productID]\n"
+                + "	WHERE p.pid = ? ORDER BY c.[created_at] DESC";
+
+        try {
+            connect = connection.prepareStatement(query);
+            connect.setInt(1, pid);
+            result = connect.executeQuery();
+            while (result.next()) {
+                return new ProductOrder(
+                        result.getInt(1),
+                        result.getString(2),
+                        result.getString(3),
+                        result.getString(4),
+                        result.getDouble(5),
+                        result.getInt(6)
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                if (result != null) {
+                    result.close();
+                }
+                if (connect != null) {
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return null;
     }
 }

@@ -17,28 +17,16 @@
         <servlet-class>controller.user.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddController</servlet-name>
-        <servlet-class>controller.AddController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>DeleteController</servlet-name>
-        <servlet-class>controller.DeleteController</servlet-class>
+        <servlet-class>controller.admin.DeleteController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditController</servlet-name>
-        <servlet-class>controller.EditController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LoadController</servlet-name>
-        <servlet-class>controller.LoadController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ManagerController</servlet-name>
-        <servlet-class>controller.ManagerController</servlet-class>
+        <servlet-class>controller.admin.EditController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CategoryController</servlet-name>
-        <servlet-class>controller.CategoryController</servlet-class>
+        <servlet-class>controller.admin.CategoryController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProductServlet</servlet-name>
@@ -73,7 +61,6 @@
         <servlet-class>controller.user.UpdateQuantityProductOrderServlet</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>InformationUserServlet</servlet-name>
         <servlet-class>controller.user.InformationUserServlet</servlet-class>
     </servlet>
@@ -84,10 +71,94 @@
     <servlet>
         <servlet-name>ChangePassUserServlet</servlet-name>
         <servlet-class>controller.user.ChangePassUserServlet</servlet-class>
-=======
-        <servlet-name>PagingController</servlet-name>
-        <servlet-class>controller.PagingController</servlet-class>
->>>>>>> b4592cbe0877484c409b63a4499bf7bffad0a8d3
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmCartServlet</servlet-name>
+        <servlet-class>controller.user.ConfirmCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ErrorServlet</servlet-name>
+        <servlet-class>controller.admin.ErrorServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagementServlet</servlet-name>
+        <servlet-class>controller.admin.ManagementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginManagerServlet</servlet-name>
+        <servlet-class>controller.admin.LoginManagerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutManagerServlet</servlet-name>
+        <servlet-class>controller.admin.LogoutManagerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagementProductServlet</servlet-name>
+        <servlet-class>controller.admin.ManagementProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagementProductDetailServlet</servlet-name>
+        <servlet-class>controller.admin.ManagementProductDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAndDeleteManagementProductDetailServlet</servlet-name>
+        <servlet-class>controller.admin.UpdateAndDeleteManagementProductDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>controller.user.OrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderDetailServlet</servlet-name>
+        <servlet-class>controller.user.OrderDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateOrderServlet</servlet-name>
+        <servlet-class>controller.user.CreateOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagerDiscountCodeServlet</servlet-name>
+        <servlet-class>controller.admin.ManagerDiscountCodeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagementDiscountCodeServlet</servlet-name>
+        <servlet-class>controller.admin.ManagementDiscountCodeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagementAccountServlet</servlet-name>
+        <servlet-class>controller.admin.ManagementAccountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagementNotificationServlet</servlet-name>
+        <servlet-class>controller.admin.ManagementNotificationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagementOrderServlet</servlet-name>
+        <servlet-class>controller.admin.ManagementOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <servlet-class>controller.admin.CreateAccountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagementOrderDetailServlet</servlet-name>
+        <servlet-class>controller.admin.ManagementOrderDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertManagementProductDetailServlet</servlet-name>
+        <servlet-class>controller.admin.InsertManagementProductDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <servlet-class>controller.admin.DeleteAccountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteDiscountCodeServlet</servlet-name>
+        <servlet-class>controller.admin.DeleteDiscountCodeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditDiscountCodeServlet</servlet-name>
+        <servlet-class>controller.admin.EditDiscountCodeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
@@ -106,24 +177,12 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddController</servlet-name>
-        <url-pattern>/add</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>DeleteController</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditController</servlet-name>
         <url-pattern>/edit</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoadController</servlet-name>
-        <url-pattern>/loadProduct</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ManagerController</servlet-name>
-        <url-pattern>/manager</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
@@ -162,7 +221,6 @@
         <url-pattern>/updatequantityproductorder</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>InformationUserServlet</servlet-name>
         <url-pattern>/info</url-pattern>
     </servlet-mapping>
@@ -174,14 +232,95 @@
         <servlet-name>ChangePassUserServlet</servlet-name>
         <url-pattern>/changepassuser</url-pattern>
     </servlet-mapping>
-    <welcome-file-list>
-        <welcome-file>/wish</welcome-file>
-=======
-        <servlet-name>PagingController</servlet-name>
-        <url-pattern>/paging</url-pattern>
+    <servlet-mapping>
+        <servlet-name>ConfirmCartServlet</servlet-name>
+        <url-pattern>/confirmcart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ErrorServlet</servlet-name>
+        <url-pattern>/404</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagementServlet</servlet-name>
+        <url-pattern>/management</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginManagerServlet</servlet-name>
+        <url-pattern>/loginmanager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutManagerServlet</servlet-name>
+        <url-pattern>/logoutmanager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagementProductServlet</servlet-name>
+        <url-pattern>/managementproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagementProductDetailServlet</servlet-name>
+        <url-pattern>/managementproductdetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAndDeleteManagementProductDetailServlet</servlet-name>
+        <url-pattern>/updateanddeletemanagementproductdetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/order</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderDetailServlet</servlet-name>
+        <url-pattern>/orderdetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateOrderServlet</servlet-name>
+        <url-pattern>/createorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerDiscountCodeServlet</servlet-name>
+        <url-pattern>/managerdiscountcode</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagementDiscountCodeServlet</servlet-name>
+        <url-pattern>/managementdiscountcode</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagementAccountServlet</servlet-name>
+        <url-pattern>/managementaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagementNotificationServlet</servlet-name>
+        <url-pattern>/managementnotification</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagementOrderServlet</servlet-name>
+        <url-pattern>/managementorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <url-pattern>/createaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagementOrderDetailServlet</servlet-name>
+        <url-pattern>/managementorderdetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertManagementProductDetailServlet</servlet-name>
+        <url-pattern>/insertmanagementproductdetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <url-pattern>/deleteaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteDiscountCodeServlet</servlet-name>
+        <url-pattern>/deletediscountcode</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditDiscountCodeServlet</servlet-name>
+        <url-pattern>/editdiscountcode</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
->>>>>>> b4592cbe0877484c409b63a4499bf7bffad0a8d3
+        <welcome-file>wish</welcome-file>
     </welcome-file-list>
 </web-app>

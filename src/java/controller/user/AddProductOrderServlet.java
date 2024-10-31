@@ -35,7 +35,8 @@ public class AddProductOrderServlet extends HttpServlet {
                 productOrderDAO.addProductOrder(checkLoginAccount.getId(), productId, quantity);
                 response.sendRedirect("cart");
             } else if ("buyNow".equals(action)) {
-                
+                productOrderDAO.addProductOrder(checkLoginAccount.getId(), productId, quantity);
+                response.sendRedirect("confirmcart?action=buyNow&pid=" + productId);
             } else {
                 request.setAttribute("error", "Lỗi khi truy xuất chức năng hệ thống");
                 response.sendRedirect("detail");

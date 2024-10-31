@@ -117,6 +117,7 @@
                                         <li><a class="dropdown-item" href="management">Quản lý</a></li>
                                         </c:if>
                                     <li><a class="dropdown-item" href="cart">Giỏ hàng</a></li>
+                                    <li><a class="dropdown-item" href="order">Đơn hàng</a></li>
                                     <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
                                 </ul>
                             </div>

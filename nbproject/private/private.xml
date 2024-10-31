@@ -3,14 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/web/web/info.jsp</file>
-=======
-            <file>file:/H:/SE_1885/websellbicycle/src/java/controller/EditController.java</file>
-            <file>file:/H:/SE_1885/websellbicycle/src/java/dao/ProductDAO.java</file>
-            <file>file:/H:/SE_1885/websellbicycle/web/Edit.jsp</file>
-            <file>file:/H:/SE_1885/websellbicycle/web/ManagerProduct.jsp</file>
->>>>>>> b4592cbe0877484c409b63a4499bf7bffad0a8d3
+            <file>file:/C:/Users/hiepg/OneDrive/Desktop/PRJ301/WebBicyle/src/java/controller/admin/ManagementOrderServlet.java</file>
         </group>
     </open-files>
 </project-private>

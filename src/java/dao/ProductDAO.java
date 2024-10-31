@@ -4,15 +4,12 @@ import dal.DBContext;
 import entity.*;
 import java.util.*;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ProductDAO extends DBContext {
 
     PreparedStatement connect = null;
     ResultSet result = null;
 
-    
     public List<Product> getAllProduct() {
         List<Product> products = new ArrayList<>();
         String query = "SELECT * FROM [product]";
@@ -24,9 +21,10 @@ public class ProductDAO extends DBContext {
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
-                        result.getDouble(4),
-                        result.getString(5),
-                        result.getString(6)));
+                        result.getInt(4),
+                        result.getDouble(5),
+                        result.getString(6),
+                        result.getString(7)));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -45,7 +43,6 @@ public class ProductDAO extends DBContext {
         return products;
     }
 
-   
     public List<Product> getTop3() {
         List<Product> products = new ArrayList<>();
         String query = "SELECT TOP 3 * FROM [product] ORDER BY [pid] DESC";
@@ -57,9 +54,10 @@ public class ProductDAO extends DBContext {
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
-                        result.getDouble(4),
-                        result.getString(5),
-                        result.getString(6)));
+                        result.getInt(4),
+                        result.getDouble(5),
+                        result.getString(6),
+                        result.getString(7)));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -78,7 +76,6 @@ public class ProductDAO extends DBContext {
         return products;
     }
 
-    
     public List<Product> getProductByCID(int cid) {
         List<Product> products = new ArrayList<>();
         String query = "SELECT * FROM [product] WHERE [cateID] = ?";
@@ -91,9 +88,10 @@ public class ProductDAO extends DBContext {
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
-                        result.getDouble(4),
-                        result.getString(5),
-                        result.getString(6)));
+                        result.getInt(4),
+                        result.getDouble(5),
+                        result.getString(6),
+                        result.getString(7)));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -112,7 +110,6 @@ public class ProductDAO extends DBContext {
         return products;
     }
 
-    
     public List<Product> getProductBySellID(int sid) {
         List<Product> list = new ArrayList<>();
         String query = "SELECT * FROM [product] WHERE [sell_ID] = ?";
@@ -125,9 +122,10 @@ public class ProductDAO extends DBContext {
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
-                        result.getDouble(4),
-                        result.getString(5),
-                        result.getString(6)));
+                        result.getInt(4),
+                        result.getDouble(5),
+                        result.getString(6),
+                        result.getString(7)));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -146,7 +144,6 @@ public class ProductDAO extends DBContext {
         return list;
     }
 
-    
     public List<Product> searchByName(String txtSearch) {
         List<Product> list = new ArrayList<>();
         String query = "SELECT * FROM [product] WHERE [name] LIKE ?";
@@ -159,9 +156,10 @@ public class ProductDAO extends DBContext {
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
-                        result.getDouble(4),
-                        result.getString(5),
-                        result.getString(6)));
+                        result.getInt(4),
+                        result.getDouble(5),
+                        result.getString(6),
+                        result.getString(7)));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -180,7 +178,6 @@ public class ProductDAO extends DBContext {
         return list;
     }
 
-    
     public Product getProductByID(int id) {
         String query = "SELECT * FROM [product] WHERE [pid] = ?";
         try {
@@ -192,9 +189,10 @@ public class ProductDAO extends DBContext {
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
-                        result.getDouble(4),
-                        result.getString(5),
-                        result.getString(6));
+                        result.getInt(4),
+                        result.getDouble(5),
+                        result.getString(6),
+                        result.getString(7));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -213,87 +211,6 @@ public class ProductDAO extends DBContext {
         return null;
     }
 
-    
-    public void deleteProduct(String pid) {
-        String query = "DELETE FROM [product] WHERE [pid] = ?";
-        try {
-            connect = connection.prepareStatement(query);
-            connect.setString(1, pid);
-            connect.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        } finally {
-            try {
-                if (result != null) {
-                    result.close();
-                }
-                if (connect != null) {
-                    connect.close();
-                }
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-        }
-    }
-
-    
-    public void insertProduct(String name, String image, String price, String title, String description, String category, int sid) {
-        String query = "INSERT product \n"
-                + "([name], [image], [price], [title], [description], [cateID], [sell_ID])\n"
-                + "VALUES(?,?,?,?,?,?,?)";
-        try {
-            connect = connection.prepareStatement(query);
-            connect.setString(1, name);
-            connect.setString(2, image);
-            connect.setString(3, price);
-            connect.setString(4, title);
-            connect.setString(5, description);
-            connect.setString(6, category);
-            connect.setInt(7, sid);
-            connect.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        } finally {
-            try {
-                if (result != null) {
-                    result.close();
-                }
-                if (connect != null) {
-                    connect.close();
-                }
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-        }
-    }
-    
-  public void editProduct2(String name, String image, double price, String title, String description, int category, int pid) {
-    String sql = "UPDATE [dbo].[Product] " +
-                 "SET [name] = ?, " +
-                 "[image] = ?, " +
-                 "[price] = ?, " +
-                 "[title] = ?, " +
-                 "[description] = ?, " +
-                 "[cateID] = ? " +
-                 "WHERE Product.pid = ?";
-
-    try {
-        PreparedStatement stm = connection.prepareStatement(sql);
-        stm.setString(1, name);
-        stm.setString(2, image);
-        stm.setDouble(3, price);
-        stm.setString(4, title);
-        stm.setString(5, description);
-        stm.setInt(6, category);
-        stm.setInt(7, pid);
-        stm.executeUpdate();
-
-    } catch (SQLException ex) {
-        Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
-    }
-}
-
-   
     public List<Product> get5ProductRecommend(int cid, int curentId) {
         List<Product> products = new ArrayList<>();
         String query = "SELECT * FROM [Product] \n"
@@ -311,9 +228,10 @@ public class ProductDAO extends DBContext {
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
-                        result.getDouble(4),
-                        result.getString(5),
-                        result.getString(6)));
+                        result.getInt(4),
+                        result.getDouble(5),
+                        result.getString(6),
+                        result.getString(7)));
             }
 
         } catch (SQLException e) {
@@ -332,6 +250,55 @@ public class ProductDAO extends DBContext {
         }
         return products;
     }
-    
-  
+
+    public Integer getAmountOfProduct(int pid) {
+        String query = "SELECT [amount] FROM [Product] \n"
+                + "	WHERE [pid] = ?";
+
+        try {
+            connect = connection.prepareStatement(query);
+            connect.setInt(1, pid);
+            result = connect.executeQuery();
+
+            if (result.next()) {
+                return result.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                if (result != null) {
+                    result.close();
+                }
+                if (connect != null) {
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return null;
+    }
+
+    public boolean updateAmountOfProduct(int pid, int amount) {
+        String query = "UPDATE [Product] SET [amount] = [amount] - ? WHERE [pid] = ? AND [amount] > 0";
+        try {
+            connect = connection.prepareStatement(query);
+            connect.setInt(1, amount);
+            connect.setInt(2, pid);
+            return connect.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                if (connect != null) {
+                    connect.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        return false;
+    }
 }
