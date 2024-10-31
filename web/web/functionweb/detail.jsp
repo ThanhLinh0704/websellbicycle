@@ -103,6 +103,7 @@
                                         <li><a class="dropdown-item" href="management">Quản lý</a></li>
                                         </c:if>
                                     <li><a class="dropdown-item" href="cart">Giỏ hàng</a></li>
+                                    <li><a class="dropdown-item" href="order">Đơn hàng</a></li>
                                     <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
                                 </ul>
                             </div>
@@ -157,8 +158,15 @@
                                             <label>${requestScope.error}</label>
                                         </div>
                                     </div>
+                                    <c:if test="${product.amount <= 0}">
+                                        <div>
+                                            <h2>Sản phẩm hiện tại đang hết hàng</h2>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${product.amount > 0}">
                                         <button type="submit" class="btn btn-primary shadow-0" name="action" value="addToCart"> <i class="me-1 fa fa-shopping-basket"></i> Thêm vào giỏ hàng </button>
-                                    <button type="submit" class="btn btn-danger shadow-0" name="action" value="buyNow"> <i class="me-1 fa fa-shopping-basket"></i> Mua ngay </button>
+                                        <button type="submit" class="btn btn-danger shadow-0" name="action" value="buyNow"> <i class="me-1 fa fa-shopping-basket"></i> Mua ngay </button>
+                                    </c:if>
                                 </form>
 
                                 <script>
@@ -225,7 +233,7 @@
                                                     <a href="detail?id=${recommnentProduct.id}" class="nav-link mb-1">
                                                         ${recommnentProduct.title}
                                                     </a>
-                                                    <strong class="text-dark">${recommnentProduct.price}</strong>
+                                                    <strong class="text-dark"><fmt:formatNumber value="${recommnentProduct.price}" type="number" pattern="#,##0"/>đ</strong>
                                                 </div>
                                             </div>
                                         </c:forEach>

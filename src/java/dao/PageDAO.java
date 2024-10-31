@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
 import dal.DBContext;
@@ -58,9 +54,10 @@ public class PageDAO extends DBContext {
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
-                        result.getDouble(4),
-                        result.getString(5),
-                        result.getString(6)));
+                        result.getInt(4),
+                        result.getDouble(5),
+                        result.getString(6),
+                        result.getString(7)));
             }
         } catch (SQLException e) {
             System.out.println(e);

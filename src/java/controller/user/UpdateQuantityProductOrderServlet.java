@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.PrintWriter;
-import java.util.List;
 
 public class UpdateQuantityProductOrderServlet extends HttpServlet {
 
@@ -55,8 +54,6 @@ public class UpdateQuantityProductOrderServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
-        request.getRequestDispatcher("web/cart/cart.jsp").forward(request, response);
 
     }
 

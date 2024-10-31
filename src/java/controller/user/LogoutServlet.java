@@ -1,7 +1,5 @@
 package controller.user;
 
-import dao.*;
-import entity.*;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;

@@ -56,9 +56,10 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="info">Thông tin</a></li>
                             <c:if test="${sessionScope.account.isAdmin == 1 || sessionScope.account.isSell == 1}">
-                            <li><a class="dropdown-item" href="paging">Quản lý</a></li>
+                            <li><a class="dropdown-item" href="management">Quản lý</a></li>
                             </c:if>
                         <li><a class="dropdown-item" href="cart">Giỏ hàng</a></li>
+                        <li><a class="dropdown-item" href="order">Đơn hàng</a></li>
                         <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
                     </ul>
                 </div>
